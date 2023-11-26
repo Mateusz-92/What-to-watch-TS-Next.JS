@@ -1,0 +1,64 @@
+@keyframes blinkingLight {
+  15% {
+    opacity: 0.4;
+  }
+  30% {
+    opacity: 1;
+  }
+  40% {
+    opacity: 0.4;
+  }
+  45% {
+    opacity: 1;
+  }
+}
+
+@keyframes rolls {
+  0% {
+    transform: rotate(-360deg);
+  }
+}
+
+.camera_wrapper {
+  float: left;
+  margin-left: 5px;
+  position: relative;
+}
+.s_rol {
+  position: absolute;
+  left: -8%;
+  top: 5%;
+  animation: rolls 5s linear infinite;
+  max-width: 100%;
+  max-height: 100%;
+}
+.b_rol {
+  position: absolute;
+  right: 1px;
+  top: -10px;
+  animation: rolls 3.5s linear infinite;
+  max-width: 100%;
+  max-height: 100%;
+}
+.camera {
+  max-width: 100%;
+  max-height: 100%;
+  margin-top: 35%;
+}
+.light {
+  float: left;
+  margin-left: 5px;
+}
+.light img {
+  animation: blinkingLight 1.5s linear infinite;
+  max-width: 100%;
+  height: auto;
+}
+.container {
+  box-sizing: border-box;
+  margin-left: 5%;
+  margin-top: 2rem;
+  margin-right: 8px;
+  display: flex;
+  justify-content: center;
+}
