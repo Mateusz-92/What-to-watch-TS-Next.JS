@@ -1,9 +1,9 @@
-.btn button {
+.btn {
   border: none;
   padding: 0px;
   cursor: pointer;
   background-color: none;
 }
 .btn img:hover {
-  opacity: 0.7;
+  opacity: 0.75;
 }
