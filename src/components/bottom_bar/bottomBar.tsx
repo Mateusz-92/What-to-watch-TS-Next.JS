@@ -1,5 +1,6 @@
 import React from "react";
 import Button from "../common/button/btn";
+import styles from "./bottomBar.module.css";
 import { useRouter } from "next/router";
 
 const BottomBar: React.FC = () => {
@@ -9,7 +10,7 @@ const BottomBar: React.FC = () => {
   };
 
   return (
-    <div>
+    <div className={styles.bottom_bar}>
       <Button
         onNavigate={navigateHandler}
         src="images/home.png"
