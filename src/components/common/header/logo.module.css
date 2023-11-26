@@ -1,0 +1,15 @@
+.logo {
+  width: 95px;
+  display: flex;
+  box-sizing: border-box;
+}
+.logo img {
+  width: 90%;
+  object-fit: cover;
+}
+.logo p {
+  text-align: center;
+  text-transform: uppercase;
+  font-weight: bold;
+  font-size: 16px;
+}
