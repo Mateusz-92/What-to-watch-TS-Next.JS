@@ -6,16 +6,15 @@ import Logo from "@/components/common/header/logo";
 import Button from "@/components/common/button/btn";
 import { useRouter } from "next/router";
 import BottomBar from "@/components/bottom_bar/bottomBar";
+import Camera from "@/components/common/camera/camera";
+import HomeView from "@/components/homeView/homeView";
 
-const inter = Inter({ subsets: ["latin"] });
+// const inter = Inter({ subsets: ["latin"] });
 
 export default function Home() {
   return (
     <>
-      <Logo></Logo>
-      <div>This is main page</div>
-      <BottomBar />
-      {/* <Button onNavigate={handler} src="images/home.png" alt="sss"></Button> */}
+      <HomeView />
     </>
   );
 }
