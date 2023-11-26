@@ -1,0 +1,24 @@
+import React from "react";
+import styles from "./homeView.module.css";
+import Camera from "../common/camera/camera";
+import { useRouter } from "next/router";
+
+const HomeView: React.FC = () => {
+  const router = useRouter();
+  const navigateHandler = () => {
+    router.push("/search");
+  };
+  return (
+    <div className={styles.container}>
+      <div className={styles.header}>
+        <h2>
+          Lubisz stare filmy? <br />
+          Podpowiemy Ci który obejrzeć!
+        </h2>
+        <button onClick={navigateHandler}>Rozpocznij wyszukiwanie </button>
+      </div>
+      <Camera />
+    </div>
+  );
+};
+export default HomeView;

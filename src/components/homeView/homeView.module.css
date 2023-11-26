@@ -1,0 +1,28 @@
+.header button {
+  width: 90%;
+  height: 5rem;
+  border-color: #3e3134;
+  border-radius: 1rem;
+  background-color: #3e3134;
+  color: #f8c317;
+  padding: 1em;
+
+  text-transform: uppercase;
+  margin: 1em 0em 1em;
+  @media (min-width: 768px) {
+    width: 700px;
+  }
+}
+.header button:hover {
+  opacity: 0.9;
+  color: yellow;
+}
+.header h2 {
+  text-align: center;
+}
+.container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
