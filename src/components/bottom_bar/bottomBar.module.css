@@ -4,10 +4,16 @@
   background-color: #3e3134;
   justify-content: space-around;
   padding: 6px;
+  padding-bottom: 0px;
   height: 15vh;
   align-items: center;
+
   /* position: fixed;
   bottom: 0; */
+  @media (min-width: 768px) {
+    justify-content: center;
+  }
 }
+
 .bottom_bar {
 }
