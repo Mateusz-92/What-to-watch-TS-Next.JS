@@ -3,6 +3,7 @@ import styles from "./Carousel.module.css";
 
 import { useState } from "react";
 import { useRouter } from "next/router";
+import test from "node:test";
 
 const Carousel: React.FC = () => {
   type Item = {
@@ -61,12 +62,38 @@ const Carousel: React.FC = () => {
     router.push(`/${path}`);
   };
   return (
-    <div>
-      <div>
-        <button></button>
-        <button></button>
-        <img onClick={() => navigateHandler(items[index].redirect)}></img>
-        <span></span>
+    <div className={styles.container}>
+      <div className={styles.header}>
+        <h2>
+          {" "}
+          Według jakiej <br></br>kategori <br></br>szukasz filmu ?{" "}
+        </h2>
+        <div>
+          <img src="/images/question_mark.png"></img>
+        </div>
+      </div>
+      <div className={styles.wrapper}>
+        <div className={styles.type}>
+          <button
+            className={styles.prev_btn}
+            onClick={previousItemHandler}
+          ></button>
+
+          <div className={styles.test}>
+            <div className={styles.img_wrapper}>
+              <img
+                src={items[index].image}
+                alt={items[index].name}
+                onClick={() => navigateHandler(items[index].redirect)}
+              ></img>
+            </div>
+            <span>{items[index].name}</span>
+          </div>
+          <button
+            className={styles.next_btn}
+            onClick={nextItemHandler}
+          ></button>
+        </div>
       </div>
     </div>
   );
