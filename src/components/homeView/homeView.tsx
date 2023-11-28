@@ -1,12 +1,12 @@
 import React from "react";
 import styles from "./homeView.module.css";
-import Camera from "../common/camera/camera";
 import { useRouter } from "next/router";
+import Camera from "../common/camera/Camera";
 
 const HomeView: React.FC = () => {
   const router = useRouter();
   const navigateHandler = () => {
-    router.push("/search");
+    router.push("/start");
   };
   return (
     <div className={styles.container}>
