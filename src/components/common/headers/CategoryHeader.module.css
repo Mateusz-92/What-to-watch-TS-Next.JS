@@ -1,0 +1,18 @@
+.container {
+  width: 100%;
+  position: relative;
+}
+.container h3 {
+  text-align: left;
+  margin-left: 25px;
+}
+.container div {
+  position: absolute;
+  top: 5px;
+  right: 25px;
+  /* height: 100%; */
+}
+.container img {
+  max-width: 80%;
+  opacity: 0.8;
+}
