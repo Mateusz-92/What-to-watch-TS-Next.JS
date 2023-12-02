@@ -1,7 +1,8 @@
 import React from "react";
-import Button from "../common/button/btn";
+
 import styles from "./bottomBar.module.css";
 import { useRouter } from "next/router";
+import Button from "../common/button/Btn";
 
 const BottomBar: React.FC = () => {
   const router = useRouter();
