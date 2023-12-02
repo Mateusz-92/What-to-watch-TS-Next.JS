@@ -5,13 +5,13 @@ import styles from "./DropDown.module.css";
 type MenuData = {
   tagId: string;
   listName: string;
-  description: string;
+  description?: string | null;
 };
 
 const DropDownMenu: React.FC<{ startTitle: string; data: MenuData[] }> = (
   props
 ) => {
-  const [isOpen, setIsOpen] = useState(false);
+  const [isOpen, setIsOpen] = useState<boolean>(false);
   const [selectedOption, setSelectedOption] = useState<string>();
 
   const togglingHandler = () => setIsOpen(!isOpen);
