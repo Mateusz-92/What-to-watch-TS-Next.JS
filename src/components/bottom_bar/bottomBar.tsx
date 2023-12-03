@@ -1,4 +1,5 @@
 import React from "react";
+import { useState, useEffect } from "react";
 
 import styles from "./bottomBar.module.css";
 import { useRouter } from "next/router";
@@ -10,8 +11,27 @@ const BottomBar: React.FC = () => {
     router.push(`/${path}`);
   };
 
+  const [isScrolling, setIsScrolling] = useState(false);
+
+  useEffect(() => {
+    const checkScroll = () => {
+      // Sprawdź, czy użytkownik przewinął stronę do 200% wysokości ekranu
+      if (window.scrollY >= window.innerHeight * 1.2) {
+        setIsScrolling(true);
+      } else {
+        setIsScrolling(false);
+      }
+    };
+
+    window.addEventListener("scroll", checkScroll);
+
+    return () => {
+      window.removeEventListener("scroll", checkScroll);
+    };
+  }, []);
+
   return (
-    <div className={styles.bottom_bar}>
+    <div className={isScrolling ? styles.bottom_bar_fixed : styles.bottom_bar}>
       <Button
         onNavigate={navigateHandler}
         src="images/home.png"
