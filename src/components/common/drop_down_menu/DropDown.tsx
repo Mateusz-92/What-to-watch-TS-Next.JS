@@ -3,7 +3,7 @@ import { useState } from "react";
 import styles from "./DropDown.module.css";
 
 export type MenuData = {
-  tagId: string;
+  tagId?: string;
   listName: string;
   description?: string | null;
 };
