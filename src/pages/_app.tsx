@@ -1,5 +1,6 @@
 import BottomBar from "@/components/bottom_bar/bottomBar";
-import Logo from "@/components/common/header/logo";
+import Logo from "@/components/common/headers/Logo";
+
 import "@/styles/globals.css";
 import type { AppProps } from "next/app";
 
