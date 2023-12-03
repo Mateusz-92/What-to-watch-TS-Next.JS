@@ -63,7 +63,7 @@ export const getMovieByTag = (tag: string): Promise<MovieItem[]> => {
   return api.get(`movie/tag/${tag}`);
 };
 
-export const getMovieByDecade = (decade: number): Promise<MovieItem> => {
+export const getMovieByDecade = (decade: string): Promise<MovieItem[]> => {
   return api.get(`movie/years/${decade}`);
 };
 
@@ -87,6 +87,6 @@ export const getLists = (): Promise<ListData[]> => {
   return api.get("lists");
 };
 
-export const getVodMovie = (service: string): Promise<MovieItem> => {
+export const getVodMovie = (service: string): Promise<MovieItem[]> => {
   return api.get(`/vod/${service}`);
 };
