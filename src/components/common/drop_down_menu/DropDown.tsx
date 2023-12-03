@@ -2,15 +2,17 @@ import React from "react";
 import { useState } from "react";
 import styles from "./DropDown.module.css";
 
-type MenuData = {
+export type MenuData = {
   tagId: string;
   listName: string;
   description?: string | null;
 };
 
-const DropDownMenu: React.FC<{ startTitle: string; data: MenuData[] }> = (
-  props
-) => {
+const DropDownMenu: React.FC<{
+  startTitle: string;
+  data: MenuData[];
+  onSelectTag: (tag: string) => void;
+}> = (props) => {
   const [isOpen, setIsOpen] = useState<boolean>(false);
   const [selectedOption, setSelectedOption] = useState<string>();
 
@@ -18,6 +20,7 @@ const DropDownMenu: React.FC<{ startTitle: string; data: MenuData[] }> = (
   const selectOpitonHandler = (el: string) => {
     setIsOpen(false);
     setSelectedOption(el);
+    props.onSelectTag(el);
     console.log("kilk");
   };
 
