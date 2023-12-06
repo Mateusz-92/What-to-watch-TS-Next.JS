@@ -34,25 +34,25 @@ const BottomBar: React.FC = () => {
     <div className={isScrolling ? styles.bottom_bar_fixed : styles.bottom_bar}>
       <Button
         onNavigate={navigateHandler}
-        src="images/home.png"
+        src="/images/home.png"
         alt="home"
         path=""
       />
       <Button
         onNavigate={navigateHandler}
-        src="images/favourite.png"
+        src="/images/favourite.png"
         alt="our favourite"
         path="favourites"
       />
       <Button
         onNavigate={navigateHandler}
-        src="images/funfact.png"
+        src="/images/funfact.png"
         alt="funny facts"
         path="funny_facts"
       />
       <Button
         onNavigate={navigateHandler}
-        src="images/person.png"
+        src="/images/person.png"
         alt="about
         "
         path="aobut"
