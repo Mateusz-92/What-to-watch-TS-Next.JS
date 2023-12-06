@@ -3,6 +3,7 @@ import styles from "./MoviesCoverList.module.css";
 import { useState, useEffect } from "react";
 import MovieCover from "../MovieCover";
 import { getMovieByTag } from "@/pages/api/api";
+import { useRouter } from "next/router";
 
 type MovieCoverData = {
   id: number;
@@ -17,6 +18,12 @@ const MoviesCoverList: React.FC<{
 }> = (props) => {
   const [movie, setMovie] = useState<MovieCoverData[]>([]);
 
+  const router = useRouter();
+  const navigateHandler = (id: number) => {
+    console.log("");
+    router.push(`movie/${id}`);
+  };
+
   useEffect(() => {
     if (props.tag) {
       props.fetch(props.tag).then((data) => {
@@ -30,7 +37,7 @@ const MoviesCoverList: React.FC<{
         movie.map((movieCover) => (
           <MovieCover
             key={movieCover.id}
-            onClick={() => {}}
+            onClick={() => navigateHandler(movieCover.id)}
             title={movieCover.title}
             year={movieCover.year}
             alt={movieCover.title}
@@ -42,36 +49,3 @@ const MoviesCoverList: React.FC<{
 };
 
 export default MoviesCoverList;
-// import React from "react";
-// import styles from "./MoviesCoverList.module.css";
-
-// import MovieCover from "../MovieCover";
-
-// export type MovieCoverData = {
-//   id: number;
-//   title: string;
-//   year: number;
-//   thumbnail: string;
-// };
-
-// const MoviesCoverList: React.FC<{ movieCoverData: MovieCoverData[] }> = (
-//   props
-// ) => {
-//   return (
-//     <div className={styles.container}>
-//       {props.movieCoverData &&
-//         props.movieCoverData.map((movieCover) => (
-//           <MovieCover
-//             key={movieCover.id}
-//             onClick={() => {}}
-//             title={movieCover.title}
-//             year={movieCover.year}
-//             alt={movieCover.title}
-//             path={movieCover.thumbnail}
-//           />
-//         ))}
-//     </div>
-//   );
-// };
-
-// export default MoviesCoverList;
