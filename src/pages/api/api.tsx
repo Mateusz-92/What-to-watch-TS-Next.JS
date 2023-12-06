@@ -1,8 +1,8 @@
 import axios, { AxiosResponse } from "axios";
 
-type MovieData = {
+export type MovieData = {
   id: number;
-  fwId: number;
+  fwId?: number;
   title: string;
   originalTitle: string;
   year: number;
@@ -10,9 +10,9 @@ type MovieData = {
   description: string;
   thumbnail: string;
   genres: string[];
-  lists: string[];
-  vod: string[];
-  tags: string[] | null;
+  lists?: string[];
+  vod?: string[];
+  tags?: string[] | null;
 };
 export type ListData = {
   tagId: string;
@@ -67,9 +67,12 @@ export const getMovieByDecade = (decade: string): Promise<MovieItem[]> => {
   return api.get(`movie/years/${decade}`);
 };
 
-export const getMovieById = (id: number): Promise<MovieData> => {
+export const getMovieById = (id: string): Promise<MovieData> => {
   return api.get(`movie/${id}`);
 };
+// export const getMovieById = (id: string): Promise<MovieData[]> => {
+//   return api.get(`movie/${id}`);
+// };
 
 export const fetchRandomFunFact = (): Promise<FunFact> => {
   return api.get("funfact/random");
