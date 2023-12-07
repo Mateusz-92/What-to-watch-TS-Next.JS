@@ -2,7 +2,7 @@ import React from "react";
 import styles from "./MoviesCoverList.module.css";
 import { useState, useEffect } from "react";
 import MovieCover from "../MovieCover";
-import { getMovieByTag } from "@/pages/api/api";
+
 import { useRouter } from "next/router";
 
 type MovieCoverData = {
@@ -19,9 +19,14 @@ const MoviesCoverList: React.FC<{
   const [movie, setMovie] = useState<MovieCoverData[]>([]);
 
   const router = useRouter();
+
   const navigateHandler = (id: number) => {
-    console.log("");
-    router.push(`movie/${id}`);
+    const currentPath = router.asPath.toLowerCase();
+    const newPath = `/movie/${id}`.toLowerCase();
+
+    if (currentPath !== newPath) {
+      router.push(newPath);
+    }
   };
 
   useEffect(() => {
