@@ -9,7 +9,7 @@ const MovieCover: React.FC<{
   year: number;
 }> = (props) => {
   const [imagePath, setImagePath] = useState<string>(props.path);
-  const emptyImage: string = "images/empty_image.png";
+  const emptyImage: string = "/images/empty_image.png";
 
   const handleImageError = () => {
     setImagePath(emptyImage);
