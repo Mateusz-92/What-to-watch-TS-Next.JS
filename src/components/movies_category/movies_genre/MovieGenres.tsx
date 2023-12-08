@@ -152,7 +152,7 @@ const MovieGenres: React.FC = (props) => {
       />
       {genres?.length && (
         <DropDownMenu
-          startTitle="Gatunek"
+          startTitle={selectedTag || "Gatunek"}
           data={genres}
           onSelectTag={changeTagHandler}
         />
