@@ -1,0 +1,13 @@
+.btn {
+  width: 90%;
+  /* width: 90%; */
+  height: 50px;
+  border-radius: 10px;
+  border-color: #3e3134;
+  background-color: #3e3134;
+  /* margin: 0 auto; */
+  text-transform: uppercase;
+  color: #f8c317;
+
+  cursor: pointer;
+}
