@@ -3,7 +3,7 @@ import { useState, useEffect } from "react";
 
 import styles from "./bottomBar.module.css";
 import { useRouter } from "next/router";
-import Button from "../common/button/Btn";
+import IconButton from "../common/buttons/icon_btn/IconBtn";
 
 const BottomBar: React.FC = () => {
   const router = useRouter();
@@ -32,25 +32,25 @@ const BottomBar: React.FC = () => {
 
   return (
     <div className={isScrolling ? styles.bottom_bar_fixed : styles.bottom_bar}>
-      <Button
+      <IconButton
         onNavigate={navigateHandler}
         src="/images/home.png"
         alt="home"
         path=""
       />
-      <Button
+      <IconButton
         onNavigate={navigateHandler}
         src="/images/favourite.png"
         alt="our favourite"
         path="favourites"
       />
-      <Button
+      <IconButton
         onNavigate={navigateHandler}
         src="/images/funfact.png"
         alt="funny facts"
         path="funny_facts"
       />
-      <Button
+      <IconButton
         onNavigate={navigateHandler}
         src="/images/person.png"
         alt="about
