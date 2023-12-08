@@ -14,33 +14,33 @@ const Carousel: React.FC = () => {
   const items: Item[] = [
     {
       name: "Ranking",
-      redirect: "/rank",
+      redirect: "rank",
       image: "/images/rank.png",
     },
     {
       name: "Rok produkcji",
-      redirect: "/year",
+      redirect: "year",
       image: "/images/year_of_production.png",
     },
     {
       name: "Polecane",
-      redirect: "/ourfavourites",
+      redirect: "ourfavourites",
       image: "/images/recommended.png",
     },
 
     {
       name: "Gatunek",
-      redirect: "/genres",
+      redirect: "genres",
       image: "/images/genre.png",
     },
     {
       name: "Losowy",
-      redirect: "/random",
+      redirect: "random",
       image: "/images/select_tag.png",
     },
     {
       name: "Vod",
-      redirect: "/vod",
+      redirect: "vod",
       image: "/images/vod.png",
     },
   ];
