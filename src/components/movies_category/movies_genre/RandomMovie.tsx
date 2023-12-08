@@ -2,6 +2,7 @@ import React, { useEffect, useState, useRef } from "react";
 import MovieDetails from "@/components/movie_details/MovieDetails";
 import { MovieData } from "@/pages/api/api";
 import { fetchRandomMovie } from "@/pages/api/api";
+import Button from "@/components/common/buttons/button/Button";
 
 const RandomMovie: React.FC = () => {
   const [movie, setMovie] = useState<MovieData | null>(null);
@@ -30,7 +31,7 @@ const RandomMovie: React.FC = () => {
         <p>Loading...</p>
       ) : (
         movie && (
-          <>
+          <div className="tmp">
             <MovieDetails
               title={movie.title}
               alt={movie.title}
@@ -42,8 +43,8 @@ const RandomMovie: React.FC = () => {
               vod={movie.vod || []}
               key={movie.id}
             />
-            <button onClick={fetchRandomMovieHandler}>Losuj</button>
-          </>
+            <Button onClick={fetchRandomMovieHandler} text="LOSUJ"></Button>
+          </div>
         )
       )}
     </div>
