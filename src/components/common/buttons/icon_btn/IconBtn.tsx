@@ -1,7 +1,7 @@
 import React from "react";
-import styles from "./btn.module.css";
+import styles from "./IconBtn.module.css";
 
-const Button: React.FC<{
+const IconButton: React.FC<{
   onNavigate: (path: string) => void;
   path: string;
   src: string;
@@ -13,4 +13,4 @@ const Button: React.FC<{
     </div>
   );
 };
-export default Button;
+export default IconButton;
