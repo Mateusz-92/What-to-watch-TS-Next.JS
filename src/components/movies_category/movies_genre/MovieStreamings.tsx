@@ -1,7 +1,7 @@
-import { getVodMovie } from "../../../pages/api/api";
+import { ListData, getVodMovie } from "../../../pages/api/api";
 import React, { useState } from "react";
 
-import { MenuData } from "../../common/drop_down_menu/DropDown";
+// import { MenuData } from "../../common/drop_down_menu/DropDown";
 
 import DropDownMenu from "@/components/common/drop_down_menu/DropDown";
 import MoviesCoverList from "@/components/movie_cover/movie_cover_list/MoviesCoverList";
@@ -10,7 +10,7 @@ import CategoryHeader from "@/components/common/headers/CategoryHeader";
 const MovieStreamings: React.FC = (props) => {
   const [selectedTag, setSelectedTag] = useState<string>("");
 
-  const vodServices: MenuData[] = [
+  const vodServices: ListData[] = [
     {
       listName: "35",
     },
@@ -56,13 +56,13 @@ const MovieStreamings: React.FC = (props) => {
         path="images/vod.png"
         alt="Platformy streamingowe"
       />
-      {vodServices?.length && (
-        <DropDownMenu
-          startTitle="Lista"
-          data={vodServices}
-          onSelectTag={changeTagHandler}
-        />
-      )}
+      {/* {vodServices?.length && ( */}
+      <DropDownMenu
+        startTitle="Lista"
+        data={vodServices}
+        onSelectTag={changeTagHandler}
+      />
+      {/* )} */}
       <MoviesCoverList tag={selectedTag} fetch={getVodMovie} />
     </div>
   );

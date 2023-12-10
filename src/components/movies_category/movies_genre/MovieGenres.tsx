@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { getGenres, getMovieByTag } from "../../../pages/api/api";
-import { MenuData } from "../../common/drop_down_menu/DropDown";
+// import { MenuData } from "../../common/drop_down_menu/DropDown";
 import { ListData } from "../../../pages/api/api";
 import styles from "./MovieGenres.module.css";
 
@@ -134,12 +134,13 @@ const MovieGenres: React.FC = (props) => {
   const [genres, setGenres] = useState<ListData[]>([]);
   const [selectedTag, setSelectedTag] = useState<string>("");
 
-  useEffect(() => {
-    getGenres().then((data) => {
-      // setIsLoading(false);
-      setGenres(data);
-    });
-  }, []);
+  // useEffect(() => {
+  //   getGenres().then((data) => {
+  //     // setIsLoading(false);
+  //     setGenres(data);
+  //     console.log("use ef");
+  //   });
+  // }, []);
   const changeTagHandler = (tag: string) => {
     setSelectedTag(tag);
   };
@@ -150,13 +151,14 @@ const MovieGenres: React.FC = (props) => {
         path="images/genre.png"
         alt="gatunki filmowe"
       />
-      {genres?.length && (
-        <DropDownMenu
-          startTitle={selectedTag || "Gatunek"}
-          data={genres}
-          onSelectTag={changeTagHandler}
-        />
-      )}
+      {/* {genres?.length && ( */}
+      <DropDownMenu
+        fetchList={getGenres}
+        startTitle={selectedTag || "Gatunek"}
+        // data={genres}
+        onSelectTag={changeTagHandler}
+      />
+      //
       <MoviesCoverList tag={selectedTag} fetch={getMovieByTag} />
       {/* <MoviesCoverList movieCoverData={movies} /> */}
     </div>

@@ -1,7 +1,7 @@
-import { getMovieByDecade } from "../../../pages/api/api";
+import { ListData, getMovieByDecade } from "../../../pages/api/api";
 import React, { useState } from "react";
 
-import { MenuData } from "../../common/drop_down_menu/DropDown";
+// import { MenuData } from "../../common/drop_down_menu/DropDown";
 
 import DropDownMenu from "@/components/common/drop_down_menu/DropDown";
 import MoviesCoverList from "@/components/movie_cover/movie_cover_list/MoviesCoverList";
@@ -10,7 +10,7 @@ import CategoryHeader from "@/components/common/headers/CategoryHeader";
 const MovieYears: React.FC = (props) => {
   const [selectedTag, setSelectedTag] = useState<string>("");
 
-  const yearsList: MenuData[] = [
+  const yearsList: ListData[] = [
     {
       listName: "1910",
     },
@@ -53,13 +53,13 @@ const MovieYears: React.FC = (props) => {
         path="images/clock.png"
         alt="lata produkcji"
       />
-      {yearsList?.length && (
-        <DropDownMenu
-          startTitle="Lista"
-          data={yearsList}
-          onSelectTag={changeTagHandler}
-        />
-      )}
+      {/* {yearsList?.length && ( */}
+      <DropDownMenu
+        startTitle="Lista"
+        data={yearsList}
+        onSelectTag={changeTagHandler}
+      />
+      {/* )} */}
       <MoviesCoverList tag={selectedTag} fetch={getMovieByDecade} />
     </div>
   );
