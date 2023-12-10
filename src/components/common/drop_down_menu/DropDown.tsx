@@ -1,41 +1,57 @@
 import React from "react";
-import { useState } from "react";
+import { useState, useEffect, useRef } from "react";
 import styles from "./DropDown.module.css";
-
-export type MenuData = {
-  tagId?: string;
-  listName: string;
-  description?: string | null;
-};
+import { ListData } from "@/pages/api/api";
 
 const DropDownMenu: React.FC<{
   startTitle: string;
-  data: MenuData[];
+  data?: ListData[];
   onSelectTag: (tag: string) => void;
+  fetchList?: () => Promise<ListData[]>;
 }> = (props) => {
   const [isOpen, setIsOpen] = useState<boolean>(false);
   const [selectedOption, setSelectedOption] = useState<string>();
+  const [list, setList] = useState<ListData[]>([]);
+  const hasFetchedData = useRef(false);
 
   const togglingHandler = () => setIsOpen(!isOpen);
+
   const selectOpitonHandler = (el: string) => {
     setIsOpen(false);
     setSelectedOption(el);
     props.onSelectTag(el);
-    console.log("kilk");
   };
 
+  useEffect(() => {
+    if (props.fetchList) {
+      if (!hasFetchedData.current) {
+        props.fetchList();
+        hasFetchedData.current = true;
+
+        props.fetchList().then((data) => {
+          setList(data);
+          console.log("useEffect");
+        });
+      }
+    }
+  }, []);
   return (
     <>
       <div className={styles.container}>
         <div className={styles.header} onClick={togglingHandler}>
-          {selectedOption || [props.startTitle]}
+          {(selectedOption &&
+            (list.find((el) => el.listName === selectedOption)?.listName ||
+              props.data?.find((el) => el.listName === selectedOption)
+                ?.listName)) ||
+            props.startTitle}
           <img src="/images/arrow_down.png" alt="arrow"></img>
         </div>
+
         {isOpen && (
           <div className={styles.list_container}>
-            {props.data.length > 0 && (
+            {(list.length > 0 || (props.data && props.data.length > 0)) && (
               <ul>
-                {props.data?.map((el) => (
+                {(list && list.length > 0 ? list : props.data)?.map((el) => (
                   <li
                     onClick={() => {
                       selectOpitonHandler(el.listName);
@@ -52,7 +68,9 @@ const DropDownMenu: React.FC<{
       </div>
       <div className={styles.description}>
         {selectedOption &&
-          props.data.find((el) => el.listName === selectedOption)?.description}
+          (list.find((el) => el.listName === selectedOption)?.description ||
+            props.data?.find((el) => el.listName === selectedOption)
+              ?.description)}
       </div>
     </>
   );
