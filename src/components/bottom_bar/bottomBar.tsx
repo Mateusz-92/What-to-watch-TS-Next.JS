@@ -40,9 +40,9 @@ const BottomBar: React.FC = () => {
       />
       <IconButton
         onNavigate={navigateHandler}
-        src="/images/favourite.png"
+        src="/images/favorite.png"
         alt="our favourite"
-        path="favourites"
+        path="ourfavourites"
       />
       <IconButton
         onNavigate={navigateHandler}
