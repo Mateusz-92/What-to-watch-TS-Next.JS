@@ -1,6 +1,6 @@
 import React from "react";
 import styles from "./MoviesCoverList.module.css";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import MovieCover from "../MovieCover";
 
 import { useRouter } from "next/router";
@@ -17,6 +17,7 @@ const MoviesCoverList: React.FC<{
   tag: string;
 }> = (props) => {
   const [movie, setMovie] = useState<MovieCoverData[]>([]);
+  const hasFetchedData = useRef(false);
 
   const router = useRouter();
 
@@ -31,9 +32,13 @@ const MoviesCoverList: React.FC<{
 
   useEffect(() => {
     if (props.tag) {
-      props.fetch(props.tag).then((data) => {
-        setMovie(data);
-      });
+      if (!hasFetchedData.current) {
+        props.fetch(props.tag).then((data) => {
+          setMovie(data);
+        });
+        hasFetchedData.current = true;
+        console.log("fetched");
+      }
     }
   }, [props.tag]);
   return (
