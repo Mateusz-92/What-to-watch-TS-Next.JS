@@ -56,13 +56,13 @@ const MovieStreamings: React.FC = (props) => {
         path="images/vod.png"
         alt="Platformy streamingowe"
       />
-      {/* {vodServices?.length && ( */}
+     
       <DropDownMenu
         startTitle="Lista"
         data={vodServices}
         onSelectTag={changeTagHandler}
       />
-      {/* )} */}
+     
       <MoviesCoverList tag={selectedTag} fetch={getVodMovie} />
     </div>
   );

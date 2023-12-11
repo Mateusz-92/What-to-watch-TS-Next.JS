@@ -53,7 +53,7 @@ const MovieYears: React.FC = (props) => {
         path="images/clock.png"
         alt="lata produkcji"
       />
-      {/* {yearsList?.length && ( */}
+   
       <DropDownMenu
         startTitle="Lista"
         data={yearsList}
