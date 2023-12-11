@@ -1,20 +1,28 @@
-import React from "react";
+import React, { useState } from "react";
 import styles from "./MovieDetails.module.css";
 
 const MovieDetails: React.FC<{
-  thumbnail: string;
+  // thumbnail: string;
   alt: string;
-  year: number;
+  year?: number;
   title: string;
-  genres: string[];
+  genres?: string[];
   description: string;
-  country: string;
-  vod: string[];
+  country?: string;
+  vod?: string[];
+  path: string;
 }> = (props) => {
+  const [imagePath, setImagePath] = useState<string>(props.path || "");
+  const emptyImage: string = "/images/empty_image.png";
+
+  const handleImageError = () => {
+    setImagePath(emptyImage);
+  };
   return (
     <div className={styles.container}>
       <div className={styles.image_wrapper}>
-        <img src={props.thumbnail} alt={props.alt}></img>
+        <img src={imagePath} alt={props.alt} onError={handleImageError}></img>
+        {/* <img src={props.thumbnail} alt={props.alt}></img> */}
       </div>
       <div>
         <div>
@@ -29,7 +37,8 @@ const MovieDetails: React.FC<{
           <span>{props.country}</span>
         </div>
       </div>
-      {props.vod?.length > 0 && (
+
+      {props.vod && props.vod?.length > 0 && (
         <>
           <span>Obejrzysz na:</span>
           <div className={styles.vod_wrapper}>
