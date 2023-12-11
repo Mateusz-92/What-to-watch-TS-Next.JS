@@ -37,7 +37,7 @@ const RandomMovie: React.FC = () => {
               alt={movie.title}
               country={movie.country}
               description={movie.description}
-              thumbnail={movie.thumbnail}
+              path={movie.thumbnail}
               year={movie.year}
               genres={movie.genres}
               vod={movie.vod || []}
