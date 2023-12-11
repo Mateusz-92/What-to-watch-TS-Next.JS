@@ -134,13 +134,6 @@ const MovieGenres: React.FC = (props) => {
   const [genres, setGenres] = useState<ListData[]>([]);
   const [selectedTag, setSelectedTag] = useState<string>("");
 
-  // useEffect(() => {
-  //   getGenres().then((data) => {
-  //     // setIsLoading(false);
-  //     setGenres(data);
-  //     console.log("use ef");
-  //   });
-  // }, []);
   const changeTagHandler = (tag: string) => {
     setSelectedTag(tag);
   };
@@ -151,16 +144,16 @@ const MovieGenres: React.FC = (props) => {
         path="images/genre.png"
         alt="gatunki filmowe"
       />
-      {/* {genres?.length && ( */}
+    
       <DropDownMenu
         fetchList={getGenres}
         startTitle={selectedTag || "Gatunek"}
-        // data={genres}
+       
         onSelectTag={changeTagHandler}
       />
       //
       <MoviesCoverList tag={selectedTag} fetch={getMovieByTag} />
-      {/* <MoviesCoverList movieCoverData={movies} /> */}
+     
     </div>
   );
 };
