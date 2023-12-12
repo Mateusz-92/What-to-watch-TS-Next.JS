@@ -16,7 +16,7 @@ const DropDownMenu: React.FC<{
 
   const togglingHandler = () => setIsOpen(!isOpen);
 
-  const selectOpitonHandler = (el: string) => {
+  const selectOptionHandler = (el: string) => {
     setIsOpen(false);
     setSelectedOption(el);
     props.onSelectTag(el);
@@ -37,35 +37,37 @@ const DropDownMenu: React.FC<{
   }, []);
   return (
     <>
-      <div className={styles.container}>
-        <div className={styles.header} onClick={togglingHandler}>
-          {(selectedOption &&
-            (list.find((el) => el.listName === selectedOption)?.listName ||
-              props.data?.find((el) => el.listName === selectedOption)
-                ?.listName)) ||
-            props.startTitle}
-          <img src="/images/arrow_down.png" alt="arrow"></img>
-        </div>
-
-        {isOpen && (
-          <div className={styles.list_container}>
-            {(list.length > 0 || (props.data && props.data.length > 0)) && (
-              <ul>
-                {(list && list.length > 0 ? list : props.data)?.map((el) => (
-                  <li
-                    onClick={() => {
-                      selectOpitonHandler(el.listName);
-                    }}
-                    key={el.listName}
-                  >
-                    {el.listName}
-                  </li>
-                ))}
-              </ul>
-            )}
+      {list && (
+        <div className={styles.container}>
+          <div className={styles.header} onClick={togglingHandler}>
+            {(selectedOption &&
+              (list.find((el) => el.listName === selectedOption)?.listName ||
+                props.data?.find((el) => el.listName === selectedOption)
+                  ?.listName)) ||
+              props.startTitle}
+            <img src="/images/arrow_down.png" alt="arrow" />
           </div>
-        )}
-      </div>
+
+          {isOpen && (
+            <div className={styles.list_container}>
+              {(list.length > 0 || (props.data && props.data.length > 0)) && (
+                <ul>
+                  {(list && list.length > 0 ? list : props.data)?.map((el) => (
+                    <li
+                      onClick={() => {
+                        selectOptionHandler(el.listName);
+                      }}
+                      key={el.listName}
+                    >
+                      {el.listName}
+                    </li>
+                  ))}
+                </ul>
+              )}
+            </div>
+          )}
+        </div>
+      )}
       <div className={styles.description}>
         {selectedOption &&
           (list.find((el) => el.listName === selectedOption)?.description ||
