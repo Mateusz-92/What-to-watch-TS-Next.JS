@@ -15,7 +15,6 @@ const BottomBar: React.FC = () => {
 
   useEffect(() => {
     const checkScroll = () => {
-      // Sprawdź, czy użytkownik przewinął stronę do 200% wysokości ekranu
       if (window.scrollY >= window.innerHeight * 1.2) {
         setIsScrolling(true);
       } else {
@@ -55,7 +54,7 @@ const BottomBar: React.FC = () => {
         src="/images/person.png"
         alt="about
         "
-        path="aobut"
+        path="about"
       />
     </div>
   );
