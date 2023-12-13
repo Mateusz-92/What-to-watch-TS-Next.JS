@@ -1,0 +1,38 @@
+.container {
+  width: 95%;
+  height: 350px;
+  color: white;
+  background-color: black;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 10px;
+  margin: auto;
+  position: absolute;
+  top: 0px;
+  bottom: 0px;
+  left: 0px;
+  right: 0px;
+  @media (min-width: 768px) {
+    width: 700px;
+    height: 400px;
+  }
+  @media (orientation: landscape) {
+    width: 80%;
+    height: 50%;
+  }
+}
+.container span {
+  display: block;
+  text-align: center;
+}
+.type {
+  font-size: x-large;
+}
+.name {
+  font-size: xx-large;
+  font-weight: bold;
+}
+.contact {
+  font-size: small;
+}
