@@ -10,3 +10,12 @@ body {
   color: #3e3134;
   background-color: #f8c317;
 }
+
+.tmp {
+  margin-top: 20px;
+  margin-bottom: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-self: center;
+  align-items: center;
+}

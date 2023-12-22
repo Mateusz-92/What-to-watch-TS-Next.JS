@@ -1,5 +1,5 @@
 import React from "react";
-import Credits from "@/components/credits/credits";
+import Credits from "@/components/credits/Credits";
 
 const About: React.FC = () => {
   return <Credits />;

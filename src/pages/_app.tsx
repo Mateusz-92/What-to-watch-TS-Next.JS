@@ -25,13 +25,12 @@ export default function App({ Component, pageProps }: AppProps) {
   };
 
   return (
-    <>
+    <div>
       <ComponentWrapper>
-        {" "}
         <Logo></Logo>
         <Component {...pageProps} />
         <BottomBar></BottomBar>
       </ComponentWrapper>
-    </>
+    </div>
   );
 }

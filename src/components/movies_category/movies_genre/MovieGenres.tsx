@@ -131,7 +131,6 @@ const movies = [
 //   },
 // ];
 const MovieGenres: React.FC = (props) => {
-  const [genres, setGenres] = useState<ListData[]>([]);
   const [selectedTag, setSelectedTag] = useState<string>("");
 
   const changeTagHandler = (tag: string) => {
@@ -144,16 +143,13 @@ const MovieGenres: React.FC = (props) => {
         path="images/genre.png"
         alt="gatunki filmowe"
       />
-    
       <DropDownMenu
         fetchList={getGenres}
         startTitle={selectedTag || "Gatunek"}
-       
         onSelectTag={changeTagHandler}
       />
       //
       <MoviesCoverList tag={selectedTag} fetch={getMovieByTag} />
-     
     </div>
   );
 };

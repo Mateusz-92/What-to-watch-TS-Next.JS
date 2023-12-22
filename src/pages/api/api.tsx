@@ -15,9 +15,9 @@ export type MovieData = {
   tags?: string[] | null;
 };
 export type ListData = {
-  tagId: string;
+  tagId?: string;
   listName: string;
-  description: string | null;
+  description?: string | null;
 };
 export type MovieItem = {
   id: number;
@@ -25,7 +25,7 @@ export type MovieItem = {
   year: number;
   thumbnail: string;
 };
-type FunFact = {
+export type FunFact = {
   id: number;
   title: string;
   content: string;
@@ -78,7 +78,7 @@ export const fetchRandomFunFact = (): Promise<FunFact> => {
   return api.get("funfact/random");
 };
 
-export const getRandomSuggestedMovie = (id: number): Promise<MovieItem> => {
+export const getRandomSuggestedMovie = (id: string): Promise<MovieItem[]> => {
   return api.get(`movie/${id}/suggestions`);
 };
 
