@@ -1,13 +1,6 @@
 [build]
- 
   command = "npm run build"
-  
- 
   publish = "out"
-
- 
-  cache = { paths = ["node_modules", ".next/cache", "next.config.js"] }
-
-
+  cache = { "paths" : ["node_modules/.cache/**", ".next/cache/**"] }
 [[plugins]]
-  package = "@netlify/plugin-nextjs"  
+  package = "@netlify/plugin-nextjs"
