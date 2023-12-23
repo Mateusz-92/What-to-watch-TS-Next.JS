@@ -46,7 +46,7 @@ const MovieGenres: React.FC = (props) => {
         startTitle={selectedTag || "Gatunek"}
         onSelectTag={changeTagHandler}
       />
-      //
+
       <MoviesCoverList tag={selectedTag} fetch={getMovieByTag} />
     </div>
   );
