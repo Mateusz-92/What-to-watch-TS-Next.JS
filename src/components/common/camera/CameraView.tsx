@@ -1,5 +1,5 @@
 import React from "react";
-import styles from "./camera.module.css";
+import styles from "./CameraView.module.css";
 // import "./animation.js";
 
 const Camera: React.FC = () => {
