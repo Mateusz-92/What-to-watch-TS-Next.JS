@@ -22,5 +22,9 @@
     "eslint": "^8",
     "eslint-config-next": "14.0.3",
     "typescript": "^5"
-  }
+  },
+  "cacheDirectories": [
+    "node_modules/",
+    "next/cache/"
+  ]
 }
