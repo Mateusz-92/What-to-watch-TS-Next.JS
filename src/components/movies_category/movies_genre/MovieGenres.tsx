@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from "react";
 import { getGenres, getMovieByTag } from "../../../pages/api/api";
-// import { MenuData } from "../../common/drop_down_menu/DropDown";
 import { ListData } from "../../../pages/api/api";
 import styles from "./MovieGenres.module.css";
 
@@ -28,108 +27,7 @@ const movies = [
     thumbnail: "https://fwcdn.pl/fpo/48/30/4830/7182176.3.jpg",
   },
 ];
-// const genresTmp = [
-//   {
-//     tagId: null,
-//     listName: "Dramat",
-//     description: null,
-//   },
-//   {
-//     tagId: null,
-//     listName: "Komedia",
-//     description: null,
-//   },
-//   {
-//     tagId: null,
-//     listName: "Psychologiczny",
-//     description: null,
-//   },
-//   {
-//     tagId: null,
-//     listName: "Wojenny",
-//     description: null,
-//   },
-//   {
-//     tagId: null,
-//     listName: "Sci-Fi",
-//     description: null,
-//   },
-//   {
-//     tagId: null,
-//     listName: "Przygodowy",
-//     description: null,
-//   },
-//   {
-//     tagId: null,
-//     listName: "Dramat obyczajowy",
-//     description: null,
-//   },
-//   {
-//     tagId: null,
-//     listName: "Thriller",
-//     description: null,
-//   },
-//   {
-//     tagId: null,
-//     listName: "Melodramat",
-//     description: null,
-//   },
-//   {
-//     tagId: null,
-//     listName: "Biograficzny",
-//     description: null,
-//   },
-//   {
-//     tagId: null,
-//     listName: "Romans",
-//     description: null,
-//   },
-//   {
-//     tagId: null,
-//     listName: "Dramat historyczny",
-//     description: null,
-//   },
-//   {
-//     tagId: null,
-//     listName: "Obyczajowy",
-//     description: null,
-//   },
-//   {
-//     tagId: null,
-//     listName: "Sensacyjny",
-//     description: null,
-//   },
-//   {
-//     tagId: null,
-//     listName: "Niemy",
-//     description: null,
-//   },
-//   {
-//     tagId: null,
-//     listName: "Kryminał",
-//     description: null,
-//   },
-//   {
-//     tagId: null,
-//     listName: "Musical",
-//     description: null,
-//   },
-//   {
-//     tagId: null,
-//     listName: "Kostiumowy",
-//     description: null,
-//   },
-//   {
-//     tagId: null,
-//     listName: "Fantasy",
-//     description: null,
-//   },
-//   {
-//     tagId: null,
-//     listName: "Polityczny",
-//     description: null,
-//   },
-// ];
+
 const MovieGenres: React.FC = (props) => {
   const [selectedTag, setSelectedTag] = useState<string>("");
 
