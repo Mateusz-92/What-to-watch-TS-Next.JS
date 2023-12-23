@@ -1,7 +1,7 @@
 import React from "react";
 import styles from "./homeView.module.css";
 import { useRouter } from "next/router";
-import Camera from "../common/camera/Camera";
+import Camera from "../common/camera/CameraView";
 
 const HomeView: React.FC = () => {
   const router = useRouter();
