@@ -69,8 +69,6 @@ const Start: React.FC = () => {
   return (
     <>
       <Carousel />
-      {/* <MovieGenres />
-      <MovieLists /> */}
     </>
   );
 };
