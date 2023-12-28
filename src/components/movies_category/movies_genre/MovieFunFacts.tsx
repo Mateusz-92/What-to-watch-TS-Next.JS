@@ -44,7 +44,7 @@ const MovieFunFacts: React.FC = () => {
               title={movie.title}
               alt={movie.title}
               description={movie.content}
-              path={movie.image}
+              path={`https://wtwapi.azurewebsites.net${movie.image}`}
               key={movie.id}
             />
             <Button onClick={fetchFanFactsHandler} text="LOSUJ"></Button>
@@ -52,7 +52,7 @@ const MovieFunFacts: React.FC = () => {
               onClick={() => moreNavigatorHandler(movie.link)}
               text="WIĘCEJ"
             ></Button>
-            {/* <MovieCover alt=""/> */}
+
             {movie.relatedMovies.map((relatedMovie) => (
               <MovieCover
                 key={relatedMovie.id}

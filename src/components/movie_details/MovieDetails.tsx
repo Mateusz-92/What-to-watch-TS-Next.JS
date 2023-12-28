@@ -12,12 +12,14 @@ const MovieDetails: React.FC<{
   vod?: string[];
   path: string;
 }> = (props) => {
-  const [imagePath, setImagePath] = useState<string>(props.path || "");
+  const [imagePath, setImagePath] = useState<string>(props.path);
   const emptyImage: string = "/images/empty_image.png";
 
   const handleImageError = () => {
     setImagePath(emptyImage);
   };
+  console.log("path");
+  console.log(props.path);
   return (
     <div className={styles.container}>
       <div className={styles.image_wrapper}>
