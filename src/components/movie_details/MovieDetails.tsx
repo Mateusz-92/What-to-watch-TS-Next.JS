@@ -2,7 +2,6 @@ import React, { useState } from "react";
 import styles from "./MovieDetails.module.css";
 
 const MovieDetails: React.FC<{
-  // thumbnail: string;
   alt: string;
   year?: number;
   title: string;
