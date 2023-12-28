@@ -37,7 +37,7 @@ const DropDownMenu: React.FC<{
   }, []);
   return (
     <>
-      {list && list.length > 0 && (
+      {list && (
         <div className={styles.container}>
           <div className={styles.header} onClick={togglingHandler}>
             {(selectedOption &&
