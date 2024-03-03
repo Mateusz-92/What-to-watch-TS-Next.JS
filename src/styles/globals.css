@@ -19,3 +19,10 @@ body {
   justify-self: center;
   align-items: center;
 }
+.appWrapper {
+  height: 100vh;
+
+  display: flex;
+  justify-content: space-between;
+  flex-direction: column;
+}
