@@ -1,9 +1,22 @@
 import React from "react";
 import { useState, useEffect } from "react";
-import _debounce from "lodash/debounce"; // Importuj funkcję debouncing z lodash
+import _debounce from "lodash/debounce";
 import styles from "./bottomBar.module.css";
 import { useRouter } from "next/router";
 import IconButton from "../common/buttons/icon_btn/IconBtn";
+
+type BottomBarButton = {
+  src: string;
+  alt: string;
+  path: string;
+};
+
+const buttonData: BottomBarButton[] = [
+  { src: "/images/home.png", alt: "home", path: "" },
+  { src: "/images/favorite.png", alt: "our favourite", path: "ourfavourites" },
+  { src: "/images/funfact.png", alt: "funny facts", path: "funny_facts" },
+  { src: "/images/person.png", alt: "about", path: "about" },
+];
 
 const BottomBar: React.FC = () => {
   const router = useRouter();
@@ -20,7 +33,7 @@ const BottomBar: React.FC = () => {
       } else {
         setIsScrolling(false);
       }
-    }, 300);
+    }, 200);
 
     window.addEventListener("scroll", checkScroll);
 
@@ -31,30 +44,15 @@ const BottomBar: React.FC = () => {
 
   return (
     <div className={isScrolling ? styles.bottom_bar_fixed : styles.bottom_bar}>
-      <IconButton
-        onNavigate={navigateHandler}
-        src="/images/home.png"
-        alt="home"
-        path=""
-      />
-      <IconButton
-        onNavigate={navigateHandler}
-        src="/images/favorite.png"
-        alt="our favourite"
-        path="ourfavourites"
-      />
-      <IconButton
-        onNavigate={navigateHandler}
-        src="/images/funfact.png"
-        alt="funny facts"
-        path="funny_facts"
-      />
-      <IconButton
-        onNavigate={navigateHandler}
-        src="/images/person.png"
-        alt="about"
-        path="about"
-      />
+      {buttonData.map((button, index) => (
+        <IconButton
+          key={index}
+          onNavigate={navigateHandler}
+          src={button.src}
+          alt={button.alt}
+          path={button.path}
+        />
+      ))}
     </div>
   );
 };
