@@ -41,7 +41,7 @@ export type FunFact = {
 
 export const api = {
   baseURL: "https://wtwapi.azurewebsites.net/",
-  get: async (path: string, params: object = {}): Promise<any> => {
+  get: async (path: string, params: object = {}) => {
     const response: AxiosResponse = await axios({
       method: "GET",
       url: `${api.baseURL}${path}`,
@@ -70,9 +70,6 @@ export const getMovieByDecade = (decade: string): Promise<MovieItem[]> => {
 export const getMovieById = (id: string): Promise<MovieData> => {
   return api.get(`movie/${id}`);
 };
-// export const getMovieById = (id: string): Promise<MovieData[]> => {
-//   return api.get(`movie/${id}`);
-// };
 
 export const fetchRandomFunFact = (): Promise<FunFact> => {
   return api.get("funfact/random");
