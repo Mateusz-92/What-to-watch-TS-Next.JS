@@ -1,6 +1,6 @@
 import React from "react";
 import { useState, useEffect } from "react";
-
+import _debounce from "lodash/debounce"; // Importuj funkcję debouncing z lodash
 import styles from "./bottomBar.module.css";
 import { useRouter } from "next/router";
 import IconButton from "../common/buttons/icon_btn/IconBtn";
@@ -14,13 +14,13 @@ const BottomBar: React.FC = () => {
   const [isScrolling, setIsScrolling] = useState(false);
 
   useEffect(() => {
-    const checkScroll = () => {
+    const checkScroll = _debounce(() => {
       if (window.scrollY >= window.innerHeight * 1.2) {
         setIsScrolling(true);
       } else {
         setIsScrolling(false);
       }
-    };
+    }, 300);
 
     window.addEventListener("scroll", checkScroll);
 
@@ -52,8 +52,7 @@ const BottomBar: React.FC = () => {
       <IconButton
         onNavigate={navigateHandler}
         src="/images/person.png"
-        alt="about
-        "
+        alt="about"
         path="about"
       />
     </div>
