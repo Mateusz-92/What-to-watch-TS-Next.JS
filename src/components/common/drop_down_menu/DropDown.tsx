@@ -8,7 +8,7 @@ const DropDownMenu: React.FC<{
   data?: ListData[];
   onSelectTag: (tag: string) => void;
   fetchList?: () => Promise<ListData[]>;
-}> = (props) => {
+}> = ({ startTitle, data, onSelectTag, fetchList }) => {
   const [isOpen, setIsOpen] = useState<boolean>(false);
   const [selectedOption, setSelectedOption] = useState<string>();
   const [list, setList] = useState<ListData[]>([]);
@@ -19,16 +19,16 @@ const DropDownMenu: React.FC<{
   const selectOptionHandler = (el: string) => {
     setIsOpen(false);
     setSelectedOption(el);
-    props.onSelectTag(el);
+    onSelectTag(el);
   };
 
   useEffect(() => {
-    if (props.fetchList) {
+    if (fetchList) {
       if (!hasFetchedData.current) {
-        props.fetchList();
+        fetchList();
         hasFetchedData.current = true;
 
-        props.fetchList().then((data) => {
+        fetchList().then((data) => {
           setList(data);
           console.log("useEffect");
         });
@@ -42,17 +42,17 @@ const DropDownMenu: React.FC<{
           <div className={styles.header} onClick={togglingHandler}>
             {(selectedOption &&
               (list.find((el) => el.listName === selectedOption)?.listName ||
-                props.data?.find((el) => el.listName === selectedOption)
+                data?.find((el) => el.listName === selectedOption)
                   ?.listName)) ||
-              props.startTitle}
+              startTitle}
             <img src="/images/arrow_down.png" alt="arrow" />
           </div>
 
           {isOpen && (
             <div className={styles.list_container}>
-              {(list.length > 0 || (props.data && props.data.length > 0)) && (
+              {(list.length > 0 || (data && data.length > 0)) && (
                 <ul>
-                  {(list && list.length > 0 ? list : props.data)?.map((el) => (
+                  {(list && list.length > 0 ? list : data)?.map((el) => (
                     <li
                       onClick={() => {
                         selectOptionHandler(el.listName);
@@ -71,8 +71,7 @@ const DropDownMenu: React.FC<{
       <div className={styles.description}>
         {selectedOption &&
           (list.find((el) => el.listName === selectedOption)?.description ||
-            props.data?.find((el) => el.listName === selectedOption)
-              ?.description)}
+            data?.find((el) => el.listName === selectedOption)?.description)}
       </div>
     </>
   );
