@@ -1,75 +1,43 @@
-import React from "react";
+import React, { useState } from "react";
 import styles from "./Carousel.module.css";
-
-import { useState } from "react";
 import { useRouter } from "next/router";
-import test from "node:test";
 
-const Carousel: React.FC = () => {
-  type Item = {
-    name: string;
-    redirect: string;
-    image: string;
-  };
-  const items: Item[] = [
-    {
-      name: "Ranking",
-      redirect: "rank",
-      image: "/images/rank.png",
-    },
-    {
-      name: "Rok produkcji",
-      redirect: "year",
-      image: "/images/year_of_production.png",
-    },
-    {
-      name: "Polecane",
-      redirect: "ourfavourites",
-      image: "/images/recommended.png",
-    },
+export type Item = {
+  name: string;
+  redirect: string;
+  image: string;
+};
 
-    {
-      name: "Gatunek",
-      redirect: "genres",
-      image: "/images/genre.png",
-    },
-    {
-      name: "Losowy",
-      redirect: "random",
-      image: "/images/select_tag.png",
-    },
-    {
-      name: "Vod",
-      redirect: "vod",
-      image: "/images/vod.png",
-    },
-  ];
+type CarouselProps = {
+  items: Item[];
+};
+
+const Carousel: React.FC<CarouselProps> = ({ items }) => {
   const [index, setIndex] = useState<number>(0);
   const nextItemHandler = () => {
-    setIndex((index) => (index + 1) % Object.keys(items).length);
+    setIndex((index) => (index + 1) % items.length);
   };
+
   const previousItemHandler = () => {
-    setIndex((index) => {
-      if (index === 0) {
-        return (index = Object.keys(items).length - 1);
-      } else {
-        return (index - 1) % Object.keys(items).length;
-      }
-    });
+    setIndex((index) => (index - 1 + items.length) % items.length);
   };
+
   const router = useRouter();
+
   const navigateHandler = (path: string) => {
     router.push(`/${path}`);
   };
+
   return (
     <div className={styles.container}>
       <div className={styles.header}>
         <h2>
-          {" "}
-          Według jakiej <br></br>kategori <br></br>szukasz filmu ?{" "}
+          <p> Według jakiej</p>
+          <p> kategori</p>
+          <p> szukasz filmu ?</p>{" "}
         </h2>
         <div>
-          <img src="/images/question_mark.png"></img>
+          <img src="/images/question_mark.png" alt="question mark"></img>
         </div>
       </div>
       <div className={styles.wrapper}>
