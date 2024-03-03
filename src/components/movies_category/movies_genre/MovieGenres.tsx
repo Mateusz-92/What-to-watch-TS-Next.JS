@@ -38,7 +38,7 @@ const MovieGenres: React.FC = (props) => {
     <div>
       <CategoryHeader
         title="Gatunki"
-        path="images/genre.png"
+      path="images/genre.png"
         alt="gatunki filmowe"
       />
       <DropDownMenu
