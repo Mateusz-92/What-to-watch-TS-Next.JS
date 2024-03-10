@@ -59,12 +59,27 @@ export const fetchListMovie = (): Promise<ListData> => {
   return api.get("lists");
 };
 
-export const getMovieByTag = (tag: string): Promise<MovieItem[]> => {
-  return api.get(`movie/tag/${tag}`);
+export const getMovieByTag = async (tag: string): Promise<MovieItem[]> => {
+  try {
+    const result = await api.get(`movie/tag/${tag}`);
+    console.log("fetched facct");
+    return result;
+  } catch (error) {
+    throw error;
+  }
 };
 
-export const getMovieByDecade = (decade: string): Promise<MovieItem[]> => {
-  return api.get(`movie/years/${decade}`);
+
+export const getMovieByDecade = async (
+  decade: string
+): Promise<MovieItem[]> => {
+  try {
+    const result = await api.get(`movie/years/${decade}`);
+    console.log("fetched fact");
+    return result;
+  } catch (error) {
+    throw error;
+  }
 };
 
 export const getMovieById = (id: string): Promise<MovieData> => {
