@@ -13,7 +13,7 @@ type BottomBarButton = {
 };
 
 const buttonData: BottomBarButton[] = [
-  { src: "/images/home.png", alt: "home", path: "" },
+{ src: "/images/home.png", alt: "home", path: "" },
   {
     src: "/images/favorite.png",
     alt: "our favourite",
