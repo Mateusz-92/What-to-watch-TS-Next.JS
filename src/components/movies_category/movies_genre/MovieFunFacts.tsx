@@ -37,7 +37,7 @@ const MovieFunFacts: React.FC = () => {
             path={`https://wtwapi.azurewebsites.net${movie.image}`}
             key={movie.id}
           />
-          <div className="fun_fucts_btn_container">
+          <div className="btn_container">
             <Button onClick={fetchFanFactsHandler} text="LOSUJ"></Button>
             <Button
               onClick={() => moreNavigatorHandler(movie.link)}

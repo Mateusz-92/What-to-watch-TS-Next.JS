@@ -19,7 +19,7 @@ const RandomMovie: React.FC = () => {
   return (
     <div>
       {data && (
-        <div className="tmp">
+        <div className="btn_container">
           <MovieDetails
             title={data.title}
             alt={data.title}
@@ -39,4 +39,3 @@ const RandomMovie: React.FC = () => {
 };
 
 export default RandomMovie;
-
