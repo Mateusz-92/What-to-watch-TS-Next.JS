@@ -19,11 +19,11 @@ This project is about old-school movies. By using the application, you'll facili
 
 ## Performance 💨
 
-<img src="src\readmeFiles\performance7.png" alt="What to whatch " >
+<img src="src\readmeFiles\performance_eng.png" alt="What to whatch " >
 
 <br/>
 
-<img src="" alt="What to whatch " >
+<img src="src\readmeFiles\logo.png" alt="What to whatch " >
 
 ## Installation 💿
 
@@ -39,4 +39,5 @@ npm run dev
 ```
 
 ## Live 🎆
+
 https://www.cobytuobejrzec.pl
