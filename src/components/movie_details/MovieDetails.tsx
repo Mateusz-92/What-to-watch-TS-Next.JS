@@ -19,8 +19,7 @@ const MovieDetails: React.FC<{
   const handleImageError = () => {
     setImagePath(emptyImage);
   };
-  console.log("path");
-  console.log(path);
+
   return (
     <div className={styles.container}>
       <div className={styles.image_wrapper}>

@@ -1,35 +1,42 @@
 import Carousel, { Item } from "@/components/carousel/Carousel";
+import {
+  MOVIE_RANK,
+  MOVIE_YEAR,
+  MOVIE_OUR_FAVOURITES,
+  MOVIE_GENRES,
+  MOVIE_RANDOM,
+  MOVIE_VOD,
+} from "@/routes";
 import React from "react";
-const items: Item[] = [
+const items = [
   {
     name: "Ranking",
-    redirect: "rank",
+    redirect: MOVIE_RANK,
     image: "/images/rank.png",
   },
   {
     name: "Rok produkcji",
-    redirect: "year",
+    redirect: MOVIE_YEAR,
     image: "/images/year_of_production.png",
   },
   {
     name: "Polecane",
-    redirect: "ourfavourites",
+    redirect: MOVIE_OUR_FAVOURITES,
     image: "/images/recommended.png",
   },
-
   {
     name: "Gatunek",
-    redirect: "genres",
+    redirect: MOVIE_GENRES,
     image: "/images/genre.png",
   },
   {
     name: "Losowy",
-    redirect: "random",
+    redirect: MOVIE_RANDOM,
     image: "/images/select_tag.png",
   },
   {
     name: "Vod",
-    redirect: "vod",
+    redirect: MOVIE_VOD,
     image: "/images/vod.png",
   },
 ];
