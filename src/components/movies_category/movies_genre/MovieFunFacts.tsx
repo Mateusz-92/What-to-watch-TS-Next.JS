@@ -13,7 +13,6 @@ const MovieFunFacts: React.FC = () => {
 
   const fetchFanFactsHandler = () => {
     refetch();
-    console.log("fetch fun");
   };
 
   const moreNavigatorHandler = (link: string) => {
