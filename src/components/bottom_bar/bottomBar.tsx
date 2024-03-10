@@ -4,6 +4,7 @@ import _debounce from "lodash/debounce";
 import styles from "./bottomBar.module.css";
 import { useRouter } from "next/router";
 import IconButton from "../common/buttons/icon_btn/IconBtn";
+import { MOVIE_OUR_FAVOURITES, ABOUT, FUNNY_FACTS } from "@/routes";
 
 type BottomBarButton = {
   src: string;
@@ -13,9 +14,13 @@ type BottomBarButton = {
 
 const buttonData: BottomBarButton[] = [
   { src: "/images/home.png", alt: "home", path: "" },
-  { src: "/images/favorite.png", alt: "our favourite", path: "ourfavourites" },
-  { src: "/images/funfact.png", alt: "funny facts", path: "funny_facts" },
-  { src: "/images/person.png", alt: "about", path: "about" },
+  {
+    src: "/images/favorite.png",
+    alt: "our favourite",
+    path: MOVIE_OUR_FAVOURITES,
+  },
+  { src: "/images/funfact.png", alt: "funny facts", path: FUNNY_FACTS },
+  { src: "/images/person.png", alt: "about", path: ABOUT },
 ];
 
 const BottomBar: React.FC = () => {
