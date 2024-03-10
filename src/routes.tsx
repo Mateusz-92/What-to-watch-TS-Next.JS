@@ -7,4 +7,4 @@ export const MOVIE_VOD = "vod";
 export const FUNNY_FACTS = "/funny_facts";
 export const ABOUT = "about";
 
-export const MOVIE = "movie";
+export const MOVIE = "/movie";
