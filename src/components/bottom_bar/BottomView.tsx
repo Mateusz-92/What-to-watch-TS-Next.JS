@@ -35,7 +35,7 @@ const BottomBar: React.FC = () => {
 
   useEffect(() => {
     const checkScroll = _debounce(() => {
-      if (window.scrollY >= window.innerHeight * 1.3) {
+      if (window.scrollY >= window.innerHeight * 1.5) {
         setIsScrolling(true);
       } else {
         setIsScrolling(false);
