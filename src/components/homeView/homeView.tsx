@@ -1,5 +1,5 @@
 import React from "react";
-import styles from "./homeView.module.css";
+import styles from "./HomeView.module.css";
 import { useRouter } from "next/router";
 import Camera from "../common/camera/CameraView";
 

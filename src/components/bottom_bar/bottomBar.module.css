@@ -25,9 +25,11 @@
   justify-content: space-around;
   padding: 6px;
   padding-bottom: 0px;
-  height: 15vh;
+  height: 115px;
   align-items: center;
   @media (min-width: 768px) {
+    justify-content: center;
+    display: flex;
     justify-content: center;
   }
 }
