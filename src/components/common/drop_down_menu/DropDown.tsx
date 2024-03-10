@@ -7,12 +7,10 @@ const DropDownMenu: React.FC<{
   startTitle: string;
   data?: ListData[];
   onSelectTag: (tag: string) => void;
-  fetchList?: () => Promise<ListData[]>;
-}> = ({ startTitle, data, onSelectTag, fetchList }) => {
+  queryData?: ListData[] | undefined;
+}> = ({ startTitle, data, onSelectTag, queryData }) => {
   const [isOpen, setIsOpen] = useState<boolean>(false);
   const [selectedOption, setSelectedOption] = useState<string>();
-  const [list, setList] = useState<ListData[]>([]);
-  const hasFetchedData = useRef(false);
 
   const togglingHandler = () => setIsOpen(!isOpen);
 
@@ -22,37 +20,21 @@ const DropDownMenu: React.FC<{
     onSelectTag(el);
   };
 
-  useEffect(() => {
-    if (fetchList) {
-      if (!hasFetchedData.current) {
-        fetchList();
-        hasFetchedData.current = true;
-
-        fetchList().then((data) => {
-          setList(data);
-          console.log("useEffect");
-        });
-      }
-    }
-  }, []);
   return (
     <>
-      {list && (
-        <div className={styles.container}>
-          <div className={styles.header} onClick={togglingHandler}>
-            {(selectedOption &&
-              (list.find((el) => el.listName === selectedOption)?.listName ||
-                data?.find((el) => el.listName === selectedOption)
-                  ?.listName)) ||
-              startTitle}
-            <img src="/images/arrow_down.png" alt="arrow" />
-          </div>
+      <div className={styles.container}>
+        <div className={styles.header} onClick={togglingHandler}>
+          {startTitle}
 
-          {isOpen && (
-            <div className={styles.list_container}>
-              {(list.length > 0 || (data && data.length > 0)) && (
-                <ul>
-                  {(list && list.length > 0 ? list : data)?.map((el) => (
+          <img src="/images/arrow_down.png" alt="arrow" />
+        </div>
+
+        {isOpen && (
+          <div className={styles.list_container}>
+            {(queryData || (data && data.length > 0)) && (
+              <ul>
+                {(queryData && queryData.length > 0 ? queryData : data)?.map(
+                  (el) => (
                     <li
                       onClick={() => {
                         selectOptionHandler(el.listName);
@@ -61,16 +43,18 @@ const DropDownMenu: React.FC<{
                     >
                       {el.listName}
                     </li>
-                  ))}
-                </ul>
-              )}
-            </div>
-          )}
-        </div>
-      )}
+                  )
+                )}
+              </ul>
+            )}
+          </div>
+        )}
+      </div>
+
       <div className={styles.description}>
         {selectedOption &&
-          (list.find((el) => el.listName === selectedOption)?.description ||
+          (queryData?.find((el) => el.listName === selectedOption)
+            ?.description ||
             data?.find((el) => el.listName === selectedOption)?.description)}
       </div>
     </>
