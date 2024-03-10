@@ -1,8 +1,5 @@
 import { ListData, getMovieByDecade } from "../../../pages/api/api";
 import React, { useState } from "react";
-
-// import { MenuData } from "../../common/drop_down_menu/DropDown";
-
 import DropDownMenu from "@/components/common/drop_down_menu/DropDown";
 import MoviesCoverList from "@/components/movie_cover/movie_cover_list/MoviesCoverList";
 import CategoryHeader from "@/components/common/headers/CategoryHeader";
@@ -46,6 +43,7 @@ const MovieYears: React.FC = () => {
   const changeTagHandler = (tag: string) => {
     setSelectedTag(tag);
   };
+
   return (
     <div>
       <CategoryHeader
@@ -55,12 +53,13 @@ const MovieYears: React.FC = () => {
       />
 
       <DropDownMenu
-        startTitle="Lista"
+        startTitle={selectedTag || "Dekada"}
         data={yearsList}
         onSelectTag={changeTagHandler}
+       
       />
 
-      <MoviesCoverList tag={selectedTag} fetch={getMovieByDecade} />
+      <MoviesCoverList tag={selectedTag} getDataFn={getMovieByDecade} />
     </div>
   );
 };
