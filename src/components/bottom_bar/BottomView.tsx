@@ -8,7 +8,6 @@ import { MOVIE_OUR_FAVOURITES, ABOUT, FUNNY_FACTS } from "@/routes";
 
 //TODO : After deploy on netlify, problem with correctly read style for default desktop style.
 
-
 type BottomBarButton = {
   src: string;
   alt: string;
@@ -36,12 +35,12 @@ const BottomBar: React.FC = () => {
 
   useEffect(() => {
     const checkScroll = _debounce(() => {
-      if (window.scrollY >= window.innerHeight * 1.2) {
+      if (window.scrollY >= window.innerHeight * 1.3) {
         setIsScrolling(true);
       } else {
         setIsScrolling(false);
       }
-    }, 200);
+    }, 300);
 
     window.addEventListener("scroll", checkScroll);
 
