@@ -42,10 +42,11 @@ const vodServices: ListData[] = [
 
 const MovieStreamings: React.FC = () => {
   const [selectedTag, setSelectedTag] = useState<string>("");
-
+  console.log("test", selectedTag);
   const changeTagHandler = (tag: string) => {
     setSelectedTag(tag);
   };
+
   return (
     <div>
       <CategoryHeader
@@ -55,12 +56,12 @@ const MovieStreamings: React.FC = () => {
       />
 
       <DropDownMenu
-        startTitle="Lista"
+        startTitle={selectedTag || "Platforma"}
         data={vodServices}
         onSelectTag={changeTagHandler}
       />
 
-      <MoviesCoverList tag={selectedTag} fetch={getVodMovie} />
+      <MoviesCoverList tag={selectedTag} getDataFn={getVodMovie} />
     </div>
   );
 };
