@@ -1,19 +1,18 @@
-import React from "react";
+import React, { useEffect, useRef, useState } from "react";
 import styles from "./Credits.module.css";
-import { useEffect, useRef, useState } from "react";
 
 type items = {
   type: string;
   name: string;
   contact?: string;
 };
+
 const team: items[] = [
   {
     type: "Frontend",
     name: "Mateusz Zasada",
     contact: "github.com/mateusz-92",
   },
-
   {
     type: "Projekt Graficzny",
     name: "Paweł Woźniak",
@@ -29,7 +28,6 @@ const team: items[] = [
     name: "",
     contact: "",
   },
-
   {
     type: "Kontakt",
     name: "",
@@ -37,7 +35,7 @@ const team: items[] = [
   },
   {
     type: "Technologie",
-    name: "React, Next JS, Type Script, React Library",
+    name: "React, Next JS, Type Script",
   },
 ];
 
@@ -51,24 +49,28 @@ const Credits: React.FC = () => {
       clearTimeout(timeoutRef.current);
     }
   };
+
   useEffect(() => {
     resetTimeout();
     timeoutRef.current = setTimeout(
-      () => SetIndex((index) => (index + 1) % Object.keys(team).length),
+      () => SetIndex((index) => (index + 1) % team.length),
       delay
     );
 
     return () => {
       resetTimeout();
     };
-  }, [team]);
+  }, [index]);
+
   return (
     <div className={styles.container}>
-      <div>
-        <span className={styles.type}>{team[index].type}</span>
-        <span className={styles.name}>{team[index].name}</span>
-        <span className={styles.contact}>{team[index].contact}</span>
-      </div>
+      {team.map((item, i) => (
+        <div key={i} style={{ display: index === i ? "block" : "none" }}>
+          <span className={styles.type}>{item.type}</span>
+          <span className={styles.name}>{item.name}</span>
+          <span className={styles.contact}>{item.contact}</span>
+        </div>
+      ))}
     </div>
   );
 };
