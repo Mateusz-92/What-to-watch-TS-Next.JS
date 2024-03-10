@@ -1,25 +1,29 @@
+
 import React from "react";
 import styles from "./MoviesCoverList.module.css";
-import { useState, useEffect, useRef } from "react";
 import MovieCover from "../MovieCover";
-
 import { useRouter } from "next/router";
+import {  useQuery } from "@tanstack/react-query";
+import { BouncingDotsLoader } from "@/components/common/loader/BouncingDotsLoader";
+import { MovieItem } from "@/pages/api/api";
 
-type MovieCoverData = {
-  id: number;
-  title: string;
-  year: number;
-  thumbnail: string;
-};
+
 
 const MoviesCoverList: React.FC<{
-  fetch: (tag: string) => Promise<MovieCoverData[]>;
-  tag: string;
-}> = (props) => {
-  const [movie, setMovie] = useState<MovieCoverData[]>([]);
-  const hasFetchedData = useRef(false);
-
+  tag?: string;
+  getDataFn: (x: string) => Promise<MovieItem[]>;
+}> = ({ tag = "", getDataFn }) => {
   const router = useRouter();
+
+  const {
+    data: moviesData,
+    isError: moviesError,
+    isLoading: moviesLoading,
+  } = useQuery({
+    queryFn: () => getDataFn(tag),
+    queryKey: [tag],
+    enabled: !!tag,
+  });
 
   const navigateHandler = (id: number) => {
     const currentPath = router.asPath.toLowerCase();
@@ -29,31 +33,25 @@ const MoviesCoverList: React.FC<{
       router.push(newPath);
     }
   };
+  if (moviesLoading) {
+    return <BouncingDotsLoader />;
+  }
+  if (moviesError) {
+    return <div>fetched is failed</div>;
+  }
 
-  useEffect(() => {
-    if (props.tag) {
-      if (!hasFetchedData.current) {
-        props.fetch(props.tag).then((data) => {
-          setMovie(data);
-        });
-        hasFetchedData.current = true;
-        console.log("fetched");
-      }
-    }
-  }, [props.tag]);
   return (
     <div className={styles.container}>
-      {movie.length > 0 &&
-        movie.map((movieCover) => (
-          <MovieCover
-            key={movieCover.id}
-            onClick={() => navigateHandler(movieCover.id)}
-            title={movieCover.title}
-            year={movieCover.year}
-            alt={movieCover.title}
-            path={movieCover.thumbnail}
-          />
-        ))}
+      {moviesData?.map((movieCover) => (
+        <MovieCover
+          key={movieCover.id}
+          onClick={() => navigateHandler(movieCover.id)}
+          title={movieCover.title}
+          year={movieCover.year}
+          alt={movieCover.title}
+          path={movieCover.thumbnail}
+        />
+      ))}
     </div>
   );
 };
