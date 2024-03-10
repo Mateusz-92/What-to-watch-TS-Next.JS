@@ -1,10 +1,13 @@
 import React from "react";
 import { useState, useEffect } from "react";
 import _debounce from "lodash/debounce";
-import styles from "./bottomBar.module.css";
+import styles from "./BottomView.module.css";
 import { useRouter } from "next/router";
 import IconButton from "../common/buttons/icon_btn/IconBtn";
 import { MOVIE_OUR_FAVOURITES, ABOUT, FUNNY_FACTS } from "@/routes";
+
+//TODO : After deploy on netlify, problem with correctly read style for default desktop style.
+
 
 type BottomBarButton = {
   src: string;
@@ -13,7 +16,7 @@ type BottomBarButton = {
 };
 
 const buttonData: BottomBarButton[] = [
-{ src: "/images/home.png", alt: "home", path: "" },
+  { src: "/images/home.png", alt: "home", path: "" },
   {
     src: "/images/favorite.png",
     alt: "our favourite",

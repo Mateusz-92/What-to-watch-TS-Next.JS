@@ -1,5 +1,5 @@
 import ComponentWrapper from "@/components/Layout/ComponentWrapper/ComponentWrapper";
-import BottomBar from "@/components/bottom_bar/bottomBar";
+import BottomBar from "@/components/bottom_bar/BottomView";
 import Logo from "@/components/common/headers/Logo";
 
 import "@/styles/globals.css";
