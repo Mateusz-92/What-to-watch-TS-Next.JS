@@ -26,7 +26,7 @@ const MovieDetails: React.FC<{
       <div className={styles.image_wrapper}>
         <img src={imagePath} alt={alt} onError={handleImageError}></img>
       </div>
-      <div>
+      <div className={styles.movie_details}>
         <div>
           <span>{year}</span>
           <h1>{title}</h1>
@@ -41,7 +41,7 @@ const MovieDetails: React.FC<{
       </div>
 
       {vod && vod?.length > 0 && (
-        <>
+        <div className={styles.movie_details}>
           <span>Obejrzysz na:</span>
           <div className={styles.vod_wrapper}>
             {vod?.map((item) => (
@@ -50,7 +50,7 @@ const MovieDetails: React.FC<{
               </div>
             ))}
           </div>
-        </>
+        </div>
       )}
       <div className={styles.description}>
         <span>{description}</span>

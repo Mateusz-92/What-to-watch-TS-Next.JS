@@ -5,6 +5,7 @@ import MovieCover from "@/components/movie_cover/MovieCover";
 import MovieDetails from "@/components/movie_details/MovieDetails";
 import { useGetRandomFunFact } from "@/pages/api/queries";
 import { BouncingDotsLoader } from "@/components/common/loader/BouncingDotsLoader";
+import MoviesCoverList from "@/components/movie_cover/movie_cover_list/MoviesCoverList";
 
 const MovieFunFacts: React.FC = () => {
   const router = useRouter();
@@ -19,10 +20,6 @@ const MovieFunFacts: React.FC = () => {
     router.push(link);
   };
 
-  const movieNavigatorHandler = (id: number) => {
-    router.push(`movie/${id}`);
-  };
-
   if (isLoading) {
     return <BouncingDotsLoader />;
   }
@@ -32,7 +29,7 @@ const MovieFunFacts: React.FC = () => {
   return (
     <div>
       {movie && (
-        <div className="tmp">
+        <div>
           <MovieDetails
             title={movie.title}
             alt={movie.title}
@@ -40,22 +37,15 @@ const MovieFunFacts: React.FC = () => {
             path={`https://wtwapi.azurewebsites.net${movie.image}`}
             key={movie.id}
           />
-          <Button onClick={fetchFanFactsHandler} text="LOSUJ"></Button>
-          <Button
-            onClick={() => moreNavigatorHandler(movie.link)}
-            text="WIĘCEJ"
-          ></Button>
+          <div className="fun_fucts_btn_container">
+            <Button onClick={fetchFanFactsHandler} text="LOSUJ"></Button>
+            <Button
+              onClick={() => moreNavigatorHandler(movie.link)}
+              text="WIĘCEJ"
+            ></Button>
+          </div>
 
-          {movie.relatedMovies.map((relatedMovie) => (
-            <MovieCover
-              key={relatedMovie.id}
-              alt={relatedMovie.title}
-              path={relatedMovie.thumbnail}
-              title={relatedMovie.title}
-              year={relatedMovie.year}
-              onClick={() => movieNavigatorHandler(relatedMovie.id)}
-            />
-          ))}
+          <MoviesCoverList fanFuctRelatedMovies={movie.relatedMovies} />
         </div>
       )}
     </div>
