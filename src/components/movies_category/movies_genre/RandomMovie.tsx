@@ -1,54 +1,42 @@
-import React, { useEffect, useState, useRef } from "react";
+import React from "react";
 import MovieDetails from "@/components/movie_details/MovieDetails";
-import { MovieData } from "@/pages/api/api";
-import { fetchRandomMovie } from "@/pages/api/api";
 import Button from "@/components/common/buttons/button/Button";
+import { useGetRandomMovie } from "@/pages/api/queries";
+import { BouncingDotsLoader } from "@/components/common/loader/BouncingDotsLoader";
 
 const RandomMovie: React.FC = () => {
-  const [movie, setMovie] = useState<MovieData | null>(null);
-  const [isLoading, setIsLoading] = useState(true);
-  const hasFetchedData = useRef(false);
+  const { data, isLoading, isError, refetch } = useGetRandomMovie();
 
   const fetchRandomMovieHandler = () => {
-    setIsLoading(true);
-    fetchRandomMovie().then((data) => {
-      setMovie(data);
-      setIsLoading(false);
-      console.log("fetch");
-    });
+    refetch();
   };
-
-  useEffect(() => {
-    if (!hasFetchedData.current) {
-      fetchRandomMovieHandler();
-      hasFetchedData.current = true;
-    }
-  }, []);
-
+  if (isLoading) {
+    return <BouncingDotsLoader />;
+  }
+  if (isError) {
+    return <div>fetched is failed</div>;
+  }
   return (
     <div>
-      {isLoading ? (
-        <p>Loading...</p>
-      ) : (
-        movie && (
-          <div className="tmp">
-            <MovieDetails
-              title={movie.title}
-              alt={movie.title}
-              country={movie.country}
-              description={movie.description}
-              path={movie.thumbnail}
-              year={movie.year}
-              genres={movie.genres}
-              vod={movie.vod || []}
-              key={movie.id}
-            />
-            <Button onClick={fetchRandomMovieHandler} text="LOSUJ"></Button>
-          </div>
-        )
+      {data && (
+        <div className="tmp">
+          <MovieDetails
+            title={data.title}
+            alt={data.title}
+            country={data.country}
+            description={data.description}
+            path={data.thumbnail}
+            year={data.year}
+            genres={data.genres}
+            vod={data.vod || []}
+            key={data.id}
+          />
+          <Button onClick={fetchRandomMovieHandler} text="LOSUJ"></Button>
+        </div>
       )}
     </div>
   );
 };
 
 export default RandomMovie;
+

@@ -7,42 +7,41 @@ type items = {
   name: string;
   contact?: string;
 };
+const team: items[] = [
+  {
+    type: "Frontend",
+    name: "Mateusz Zasada",
+    contact: "github.com/mateusz-92",
+  },
+
+  {
+    type: "Projekt Graficzny",
+    name: "Paweł Woźniak",
+    contact: "",
+  },
+  {
+    type: "Web Api",
+    name: "Marcin Mojski",
+    contact: "",
+  },
+  {
+    type: "Code Review ",
+    name: "",
+    contact: "",
+  },
+
+  {
+    type: "Kontakt",
+    name: "",
+    contact: "cobytuobejrzec.app@gmail.com",
+  },
+  {
+    type: "Technologie",
+    name: "React, Next JS, Type Script, React Library",
+  },
+];
 
 const Credits: React.FC = () => {
-  const team: items[] = [
-    {
-      type: "Frontend",
-      name: "Mateusz Zasada",
-      contact: "github.com/mateusz-92",
-    },
-
-    {
-      type: "Projekt Graficzny",
-      name: "Paweł Woźniak",
-      contact: "",
-    },
-    {
-      type: "Web Api",
-      name: "Marcin Mojski",
-      contact: "",
-    },
-    {
-      type: "Code Review ",
-      name: "",
-      contact: "",
-    },
-
-    {
-      type: "Kontakt",
-      name: "",
-      contact: "cobytuobejrzec.app@gmail.com",
-    },
-    {
-      type: "Technologie",
-      name: "React, Next JS, Type Script, React Library",
-    },
-  ];
-
   const [index, SetIndex] = useState(0);
   const timeoutRef = useRef<NodeJS.Timeout | null>(null);
   const delay = 2000;

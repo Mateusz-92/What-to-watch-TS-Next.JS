@@ -1,6 +1,10 @@
 .container {
   display: flex;
   height: 80%;
+  font-weight: bold;
+  @media (min-width: 768px) {
+    font-size: 20px;
+  }
 }
 .wrapper {
   height: 100%;
@@ -19,7 +23,6 @@
 .wrapper span {
   display: block;
   text-align: center;
-  /* width: 100%; */
 }
 .wrapper div {
   max-width: 300px;

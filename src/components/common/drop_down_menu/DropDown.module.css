@@ -1,7 +1,7 @@
 .container {
   width: 90%;
   margin: 0 auto;
-  margin-top: 200px;
+  /* margin-top: 200px; */
   margin-bottom: 20px;
   font-size: 12px;
   background-color: #e8b718;
@@ -58,7 +58,14 @@
 }
 
 .description {
-  width: 70%;
-  /* text-align: center; */
-  margin: 0 auto;
+  /* width: 70%; */
+  text-align: center;
+  margin-bottom: 20px;
+
+  @media (min-width: 768px) {
+    font-size: 24px;
+    width: 90%;
+    margin: 0 auto;
+    margin-bottom: 50px;
+  }
 }

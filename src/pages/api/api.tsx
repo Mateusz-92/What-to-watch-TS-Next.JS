@@ -41,7 +41,7 @@ export type FunFact = {
 
 export const api = {
   baseURL: "https://wtwapi.azurewebsites.net/",
-  get: async (path: string, params: object = {}): Promise<any> => {
+  get: async (path: string, params: object = {}) => {
     const response: AxiosResponse = await axios({
       method: "GET",
       url: `${api.baseURL}${path}`,
@@ -59,20 +59,32 @@ export const fetchListMovie = (): Promise<ListData> => {
   return api.get("lists");
 };
 
-export const getMovieByTag = (tag: string): Promise<MovieItem[]> => {
-  return api.get(`movie/tag/${tag}`);
+export const getMovieByTag = async (tag: string): Promise<MovieItem[]> => {
+  try {
+    const result = await api.get(`movie/tag/${tag}`);
+    console.log("fetched facct");
+    return result;
+  } catch (error) {
+    throw error;
+  }
 };
 
-export const getMovieByDecade = (decade: string): Promise<MovieItem[]> => {
-  return api.get(`movie/years/${decade}`);
+
+export const getMovieByDecade = async (
+  decade: string
+): Promise<MovieItem[]> => {
+  try {
+    const result = await api.get(`movie/years/${decade}`);
+    console.log("fetched fact");
+    return result;
+  } catch (error) {
+    throw error;
+  }
 };
 
 export const getMovieById = (id: string): Promise<MovieData> => {
   return api.get(`movie/${id}`);
 };
-// export const getMovieById = (id: string): Promise<MovieData[]> => {
-//   return api.get(`movie/${id}`);
-// };
 
 export const fetchRandomFunFact = (): Promise<FunFact> => {
   return api.get("funfact/random");

@@ -5,18 +5,21 @@ import MovieDetails from "@/components/movie_details/MovieDetails";
 import { getMovieById, getRandomSuggestedMovie } from "../../api/api";
 import { MovieData } from "../../api/api";
 import MoviesCoverList from "@/components/movie_cover/movie_cover_list/MoviesCoverList";
+import { BouncingDotsLoader } from "@/components/common/loader/BouncingDotsLoader";
+import { useGetMovieById } from "@/pages/api/queries";
 const Movie: React.FC = () => {
-  const [movie, setMovie] = useState<MovieData>();
   const router = useRouter();
 
   const movieId = router.query.movieId as string;
-  useEffect(() => {
-    if (movieId) {
-      getMovieById(movieId).then((data) => {
-        setMovie(data);
-      });
-    }
-  }, [movieId]);
+
+  const { data: movie, isLoading, isError } = useGetMovieById(movieId);
+
+  if (isLoading) {
+    return <BouncingDotsLoader />;
+  }
+  if (isError) {
+    return <div>fetched is failed</div>;
+  }
 
   return (
     <div>
@@ -34,8 +37,8 @@ const Movie: React.FC = () => {
             key={movie.id}
           />
           <MoviesCoverList
-            fetch={getRandomSuggestedMovie}
-            tag={movie.id.toString()}
+            getDataFn={getRandomSuggestedMovie}
+            tag={movieId || ""}
           />
         </>
       )}
@@ -44,3 +47,4 @@ const Movie: React.FC = () => {
 };
 
 export default Movie;
+
