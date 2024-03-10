@@ -13,7 +13,6 @@ const Movie: React.FC = () => {
   const movieId = router.query.movieId as string;
 
   const { data: movie, isLoading, isError } = useGetMovieById(movieId);
-  // const { data } = useGetRandomSuggestedMovie(movie?.id.toString() || "");
 
   if (isLoading) {
     return <BouncingDotsLoader />;
