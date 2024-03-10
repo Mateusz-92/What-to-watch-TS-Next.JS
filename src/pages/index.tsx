@@ -1,4 +1,4 @@
-import HomeView from "@/components/homeView/homeView";
+import HomeView from "@/components/homeView/HomePage";
 import React from "react";
 
 export default function Home() {
