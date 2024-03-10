@@ -11,7 +11,7 @@ const MovieFavorite: React.FC = () => {
         path="/images/recommended2.png"
         title="Polecamy"
       />
-      <MoviesCoverList fetch={getMovieByTag} tag="fav" />
+      <MoviesCoverList getDataFn={getMovieByTag} tag="fav" />
     </div>
   );
 };
