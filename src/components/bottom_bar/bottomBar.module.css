@@ -5,12 +5,13 @@
   justify-content: space-around;
   padding: 6px;
   padding-bottom: 0px;
-  height: 15vh;
+  margin-bottom: 0px;
+
+  height: 115px;
   align-items: center;
 
-  /* position: fixed;
-  bottom: 0; */
   @media (min-width: 768px) {
+    display: flex;
     justify-content: center;
   }
 }

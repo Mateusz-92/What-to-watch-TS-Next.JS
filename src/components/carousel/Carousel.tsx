@@ -47,7 +47,7 @@ const Carousel: React.FC<CarouselProps> = ({ items }) => {
             onClick={previousItemHandler}
           ></button>
 
-          <div className={styles.test}>
+          <div className={styles.img_size}>
             <div className={styles.img_wrapper}>
               <img
                 src={items[index].image}
