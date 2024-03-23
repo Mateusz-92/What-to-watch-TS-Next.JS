@@ -45,7 +45,7 @@
 
   align-items: center;
 
-  @media (max-width: 768px) {
+  @media (width < 768px) {
     justify-content: space-around;
   }
 }
@@ -59,7 +59,7 @@
   justify-content: center;
   padding: 6px 0;
   align-items: center;
-  @media (max-width: 768px) {
+  @media (width < 768px) {
     justify-content: space-around;
   }
 }
