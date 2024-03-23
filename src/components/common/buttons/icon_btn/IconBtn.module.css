@@ -3,10 +3,7 @@
   padding: 0px;
   cursor: pointer;
   background-color: none;
-  @media (min-width: 768px) {
-    justify-content: center;
-    margin-right: 25px;
-  }
+  margin-right: 10px;
 }
 .btn img:hover {
   opacity: 0.75;
