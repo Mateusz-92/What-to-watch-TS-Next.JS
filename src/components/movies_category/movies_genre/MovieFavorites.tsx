@@ -1,7 +1,7 @@
 import React from "react";
 import MoviesCoverList from "@/components/movie_cover/movie_cover_list/MoviesCoverList";
 import CategoryHeader from "@/components/common/headers/CategoryHeader";
-import { getMovieByTag } from "@/pages/api/api";
+import { getMovieByTag } from "@/api/api";
 
 const MovieFavorite: React.FC = () => {
   return (

@@ -11,7 +11,7 @@ const Camera: React.FC = () => {
         <img className={styles.b_rol} src="/images/b_rol.png" alt="scroll" />
       </div>
       <div className={styles.light}>
-        <img src="/images/light.png"></img>
+        <img src="/images/light.png" alt="camera"></img>
       </div>
     </div>
   );

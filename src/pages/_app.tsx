@@ -11,15 +11,15 @@ import {
 import { ReactQueryDevtools } from "@tanstack/react-query-devtools";
 import type { AppProps } from "next/app";
 
-export default function App({ Component, pageProps }: AppProps) {
-  const queryClient = new QueryClient({
-    queryCache: new QueryCache(),
-    defaultOptions: {
-      queries: {
-        gcTime: 60_000,
-      },
+const queryClient = new QueryClient({
+  queryCache: new QueryCache(),
+  defaultOptions: {
+    queries: {
+      gcTime: 60_000,
     },
-  });
+  },
+});
+export default function App({ Component, pageProps }: AppProps) {
   return (
     <div>
       <QueryClientProvider client={queryClient}>

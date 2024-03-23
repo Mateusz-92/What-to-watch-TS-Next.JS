@@ -1,13 +1,13 @@
 import React from "react";
-import { useState, useEffect, useRef } from "react";
+import { useState } from "react";
 import styles from "./DropDown.module.css";
-import { ListData } from "@/pages/api/api";
+import { ListData } from "@/api/api";
 
 const DropDownMenu: React.FC<{
   startTitle: string;
   data?: ListData[];
   onSelectTag: (tag: string) => void;
-  queryData?: ListData[] | undefined;
+  queryData?: ListData[];
 }> = ({ startTitle, data, onSelectTag, queryData }) => {
   const [isOpen, setIsOpen] = useState<boolean>(false);
   const [selectedOption, setSelectedOption] = useState<string>();

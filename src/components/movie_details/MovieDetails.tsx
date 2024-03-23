@@ -2,8 +2,6 @@ import React, { useState } from "react";
 import styles from "./MovieDetails.module.css";
 import { emptyImagePath } from "@/constants";
 
-const emptyImage: string = emptyImagePath;
-
 const MovieDetails: React.FC<{
   alt: string;
   year?: number;
@@ -17,7 +15,7 @@ const MovieDetails: React.FC<{
   const [imagePath, setImagePath] = useState<string>(path);
 
   const handleImageError = () => {
-    setImagePath(emptyImage);
+    setImagePath(emptyImagePath);
   };
 
   return (

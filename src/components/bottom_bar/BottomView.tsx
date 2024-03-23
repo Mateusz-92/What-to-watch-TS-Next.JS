@@ -5,6 +5,7 @@ import styles from "./BottomView.module.css";
 import { useRouter } from "next/router";
 import IconButton from "../common/buttons/icon_btn/IconBtn";
 import { MOVIE_OUR_FAVOURITES, ABOUT, FUNNY_FACTS } from "@/routes";
+import { isMobile } from "react-device-detect";
 
 //TODO : After deploy on netlify, problem with correctly read style for default desktop style.
 
@@ -26,29 +27,29 @@ const buttonData: BottomBarButton[] = [
 ];
 
 const BottomBar: React.FC = () => {
+  const [isScrolling, setIsScrolling] = useState(false);
   const router = useRouter();
   const navigateHandler = (path: string) => {
     router.push(`/${path}`);
   };
 
-  const [isScrolling, setIsScrolling] = useState(false);
-
   useEffect(() => {
-    const checkScroll = _debounce(() => {
-      if (window.scrollY >= window.innerHeight * 1.5) {
-        setIsScrolling(true);
-      } else {
-        setIsScrolling(false);
-      }
-    }, 300);
+    if (isMobile) {
+      const checkScroll = _debounce(() => {
+        if (window.scrollY >= window.innerHeight * 1.5) {
+          setIsScrolling(true);
+        } else {
+          setIsScrolling(false);
+        }
+      }, 300);
 
-    window.addEventListener("scroll", checkScroll);
+      window.addEventListener("scroll", checkScroll);
 
-    return () => {
-      window.removeEventListener("scroll", checkScroll);
-    };
+      return () => {
+        window.removeEventListener("scroll", checkScroll);
+      };
+    }
   }, []);
-
   return (
     <div className={isScrolling ? styles.bottom_bar_fixed : styles.bottom_bar}>
       {buttonData.map((button, index) => (

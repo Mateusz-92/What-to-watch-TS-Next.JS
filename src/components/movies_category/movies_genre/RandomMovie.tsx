@@ -1,7 +1,7 @@
 import React from "react";
 import MovieDetails from "@/components/movie_details/MovieDetails";
 import Button from "@/components/common/buttons/button/Button";
-import { useGetRandomMovie } from "@/pages/api/queries";
+import { useGetRandomMovie } from "@/api/queries";
 import { BouncingDotsLoader } from "@/components/common/loader/BouncingDotsLoader";
 
 const RandomMovie: React.FC = () => {

@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from "react";
-import { getMovieByTag } from "../../../pages/api/api";
+import { getMovieByTag } from "../../../api/api";
 import DropDownMenu from "@/components/common/drop_down_menu/DropDown";
 import MoviesCoverList from "@/components/movie_cover/movie_cover_list/MoviesCoverList";
 import CategoryHeader from "@/components/common/headers/CategoryHeader";
-import { useGetGenres } from "@/pages/api/queries";
+import { useGetGenres } from "@/api/queries";
 import { BouncingDotsLoader } from "@/components/common/loader/BouncingDotsLoader";
 
 const MovieGenres: React.FC = () => {

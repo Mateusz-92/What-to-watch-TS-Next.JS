@@ -6,5 +6,5 @@ export const MOVIE_RANDOM = "random";
 export const MOVIE_VOD = "vod";
 export const FUNNY_FACTS = "funny_facts";
 export const ABOUT = "about";
-
+export const START = "start";
 export const MOVIE = "/movie";

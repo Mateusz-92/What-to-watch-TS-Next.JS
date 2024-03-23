@@ -1,9 +1,9 @@
-import { getMovieByTag } from "../../../pages/api/api";
+import { getMovieByTag } from "../../../api/api";
 import React, { useState } from "react";
 import DropDownMenu from "@/components/common/drop_down_menu/DropDown";
 import MoviesCoverList from "@/components/movie_cover/movie_cover_list/MoviesCoverList";
 import CategoryHeader from "@/components/common/headers/CategoryHeader";
-import { useGetLists } from "@/pages/api/queries";
+import { useGetLists } from "@/api/queries";
 import { BouncingDotsLoader } from "@/components/common/loader/BouncingDotsLoader";
 
 const MovieLists: React.FC = (props) => {

@@ -1,41 +1,9 @@
-import { ListData, getMovieByDecade } from "../../../pages/api/api";
+import { getMovieByDecade } from "../../../api/api";
 import React, { useState } from "react";
 import DropDownMenu from "@/components/common/drop_down_menu/DropDown";
 import MoviesCoverList from "@/components/movie_cover/movie_cover_list/MoviesCoverList";
 import CategoryHeader from "@/components/common/headers/CategoryHeader";
-
-const yearsList: ListData[] = [
-  {
-    listName: "1910",
-  },
-  {
-    listName: "1920",
-  },
-  {
-    listName: "1930",
-  },
-  {
-    listName: "1940",
-  },
-  {
-    listName: "1950",
-  },
-  {
-    listName: "1960",
-  },
-  {
-    listName: "1970",
-  },
-  {
-    listName: "1980",
-  },
-  {
-    listName: "1990",
-  },
-  {
-    listName: "2000",
-  },
-];
+import { yearsList } from "@/constants";
 
 const MovieYears: React.FC = () => {
   const [selectedTag, setSelectedTag] = useState<string>("");
@@ -56,7 +24,6 @@ const MovieYears: React.FC = () => {
         startTitle={selectedTag || "Dekada"}
         data={yearsList}
         onSelectTag={changeTagHandler}
-       
       />
 
       <MoviesCoverList tag={selectedTag} getDataFn={getMovieByDecade} />
