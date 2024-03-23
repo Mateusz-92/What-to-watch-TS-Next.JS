@@ -7,7 +7,7 @@ const DropDownMenu: React.FC<{
   startTitle: string;
   data?: ListData[];
   onSelectTag: (tag: string) => void;
-  queryData?: ListData[] | undefined;
+  queryData?: ListData[];
 }> = ({ startTitle, data, onSelectTag, queryData }) => {
   const [isOpen, setIsOpen] = useState<boolean>(false);
   const [selectedOption, setSelectedOption] = useState<string>();
