@@ -2,11 +2,12 @@ import React from "react";
 import styles from "./HomePage.module.css";
 import { useRouter } from "next/router";
 import Camera from "../common/camera/CameraView";
+import { START } from "@/routes";
 
 const HomeView: React.FC = () => {
   const router = useRouter();
   const navigateHandler = () => {
-    router.push("/start");
+    router.push(START);
   };
   return (
     <div className={styles.container}>
