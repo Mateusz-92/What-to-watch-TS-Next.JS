@@ -1,48 +1,12 @@
-import { ListData, getVodMovie } from "../../../pages/api/api";
+import { ListData, getVodMovie } from "../../../api/api";
 import React, { useState } from "react";
 import DropDownMenu from "@/components/common/drop_down_menu/DropDown";
 import MoviesCoverList from "@/components/movie_cover/movie_cover_list/MoviesCoverList";
 import CategoryHeader from "@/components/common/headers/CategoryHeader";
-
-const vodServices: ListData[] = [
-  {
-    listName: "35",
-  },
-  {
-    listName: "amazon",
-  },
-  {
-    listName: "chili",
-  },
-  {
-    listName: "cineman",
-  },
-  {
-    listName: "hbo",
-  },
-  {
-    listName: "kato",
-  },
-  {
-    listName: "netflix",
-  },
-  {
-    listName: "ninateka",
-  },
-  {
-    listName: "player",
-  },
-  {
-    listName: "tvp",
-  },
-  {
-    listName: "wtf",
-  },
-];
+import { vodServices } from "@/constants";
 
 const MovieStreamings: React.FC = () => {
   const [selectedTag, setSelectedTag] = useState<string>("");
-  console.log("test", selectedTag);
   const changeTagHandler = (tag: string) => {
     setSelectedTag(tag);
   };
