@@ -1,7 +1,7 @@
 import React from "react";
-import { useState, useEffect, useRef } from "react";
+import { useState } from "react";
 import styles from "./DropDown.module.css";
-import { ListData } from "@/pages/api/api";
+import { ListData } from "@/api/api";
 
 const DropDownMenu: React.FC<{
   startTitle: string;

@@ -4,7 +4,7 @@ import MovieCover from "../MovieCover";
 import { useRouter } from "next/router";
 import { useQuery } from "@tanstack/react-query";
 import { BouncingDotsLoader } from "@/components/common/loader/BouncingDotsLoader";
-import { MovieItem } from "@/pages/api/api";
+import { MovieItem } from "@/api/api";
 import { MOVIE } from "@/routes";
 
 const MoviesCoverList: React.FC<{
@@ -27,7 +27,6 @@ const MoviesCoverList: React.FC<{
   const navigateHandler = (id: number) => {
     const currentPath = router.asPath.toLowerCase();
     const newPath = `${MOVIE}/${id}`.toLowerCase();
-   
 
     if (currentPath !== newPath) {
       router.push(newPath);

@@ -3,7 +3,7 @@ import { useRouter } from "next/router";
 import Button from "@/components/common/buttons/button/Button";
 import MovieCover from "@/components/movie_cover/MovieCover";
 import MovieDetails from "@/components/movie_details/MovieDetails";
-import { useGetRandomFunFact } from "@/pages/api/queries";
+import { useGetRandomFunFact } from "@/api/queries";
 import { BouncingDotsLoader } from "@/components/common/loader/BouncingDotsLoader";
 import MoviesCoverList from "@/components/movie_cover/movie_cover_list/MoviesCoverList";
 
