@@ -1,4 +1,3 @@
-
 import React from "react";
 import { useState, useEffect } from "react";
 import _debounce from "lodash/debounce";
@@ -35,15 +34,15 @@ const BottomBar: React.FC = () => {
   };
 
   useEffect(() => {
-    const checkScroll = _debounce(() => {
-      if (window.scrollY >= window.innerHeight * 1.5) {
-        setIsScrolling(true);
-      } else {
-        setIsScrolling(false);
-      }
-    }, 300);
-
     if (isMobile) {
+      const checkScroll = _debounce(() => {
+        if (window.scrollY >= window.innerHeight * 1.5) {
+          setIsScrolling(true);
+        } else {
+          setIsScrolling(false);
+        }
+      }, 300);
+
       window.addEventListener("scroll", checkScroll);
 
       return () => {
@@ -51,7 +50,6 @@ const BottomBar: React.FC = () => {
       };
     }
   }, []);
-
   return (
     <div className={isScrolling ? styles.bottom_bar_fixed : styles.bottom_bar}>
       {buttonData.map((button, index) => (
