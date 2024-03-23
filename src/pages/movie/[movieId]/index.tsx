@@ -1,12 +1,10 @@
 import React from "react";
-import { useEffect, useState } from "react";
 import { useRouter } from "next/router";
 import MovieDetails from "@/components/movie_details/MovieDetails";
-import { getMovieById, getRandomSuggestedMovie } from "../../api/api";
-import { MovieData } from "../../api/api";
+import { getRandomSuggestedMovie } from "../../../api/api";
 import MoviesCoverList from "@/components/movie_cover/movie_cover_list/MoviesCoverList";
 import { BouncingDotsLoader } from "@/components/common/loader/BouncingDotsLoader";
-import { useGetMovieById } from "@/pages/api/queries";
+import { useGetMovieById } from "@/api/queries";
 const Movie: React.FC = () => {
   const router = useRouter();
 
@@ -47,4 +45,3 @@ const Movie: React.FC = () => {
 };
 
 export default Movie;
-
