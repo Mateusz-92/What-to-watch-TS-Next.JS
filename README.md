@@ -19,7 +19,7 @@ This project is about old-school movies. By using the application, you'll facili
 
 ## Performance 💨
 
-<img src="src\readmeFiles\performance_eng.png" alt="What to whatch " >
+<img src="src\readmeFiles\performance_eng_march.png" alt="What to whatch " >
 
 <br/>
 
